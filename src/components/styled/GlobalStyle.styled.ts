@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-    --max-content-width: 1110px;
+    --max-content-width: 940px;
     --max-design-width: 1440px;
     --base-fsz: 62.5%;
     --body-ffam: 'Ubuntu', sans-serif;
