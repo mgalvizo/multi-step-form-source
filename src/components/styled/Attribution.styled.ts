@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-const StyledAttribution = styled.footer`
-    width: 100%;
-    padding: 0 var(--web-padding-l);
-    margin-top: auto;
-
+const StyledAttribution = styled.div`
     .attribution {
         border-top-left-radius: var(--attribution-rad);
         border-top-right-radius: var(--attribution-rad);

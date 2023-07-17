@@ -2,9 +2,9 @@ import StyledAttribution from './styled/Attribution.styled';
 
 const Attribution = () => {
     return (
-        <StyledAttribution>
-            <div className="attribution">
-                <div className="attribution__content">
+        <StyledAttribution className="component">
+            <div className="component__content">
+                <div className="attribution">
                     <p>
                         Challenge by{' '}
                         <a

@@ -96,7 +96,8 @@ body {
     overflow-x: hidden;
 }
 
-main {
+main,
+footer {
     width: 100%;
 }
 
@@ -152,16 +153,6 @@ a:link:hover {
     clip: rect(1px 1px 1px 1px);
     /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
-}
-
-.root__content {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow-x: hidden;
 }
 
 // 480px
