@@ -1,33 +1,42 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldErrors } from 'react-hook-form';
 import StyledYourInfo from '../styled/YourInfo.styled';
 import StyledForm from '../styled/Form.styled';
 import FormControl from '../Form/FormControl.component';
 import { EMAIL_REGEX, PHONE_REGEX } from '../../utils/constants';
-
-type YourInfo = {
-    name: string | undefined;
-    email: string | undefined;
-    phone: string | undefined;
-};
-
-const defaultValues = {
-    name: undefined,
-    email: undefined,
-    phone: undefined,
-};
+import Button from '../UI/Button.component';
+import { getYourInfo, updateYourInfo } from '../Form/formSlice';
+import { YourInfoType } from '../../utils/types';
 
 const YourInfo = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    let defaultValues;
+
+    const yourInfo = useSelector(getYourInfo);
+
+    if (!yourInfo) {
+        defaultValues = {
+            name: '',
+            email: '',
+            phone: '',
+        };
+    }
+
+    if (yourInfo) {
+        defaultValues = { ...yourInfo };
+    }
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm<YourInfo>({ defaultValues });
+    } = useForm<YourInfoType>({ defaultValues });
 
-    const onSubmit = (data: YourInfo): void => {
-        console.log(data);
+    const onSubmit = (data: YourInfoType): void => {
+        dispatch(updateYourInfo(data));
         navigate('/select-plan');
     };
 
@@ -94,9 +103,9 @@ const YourInfo = () => {
                             })}
                         />
                     </FormControl>
-                    <button type="submit" disabled={isSubmitting}>
-                        Next
-                    </button>
+                    <Button type="submit" disabled={isSubmitting}>
+                        Next Step
+                    </Button>
                 </StyledForm>
             </div>
         </StyledYourInfo>

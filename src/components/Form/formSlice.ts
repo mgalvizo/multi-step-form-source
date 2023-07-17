@@ -1,16 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type FormData = {
-    name?: string;
-    email?: string;
-    phone?: string;
-};
+import { FormState, FormData } from '../../utils/types';
 
 const initialState = {
-    form: {
-        name: undefined,
-        email: undefined,
-        phone: undefined,
+    yourInfo: {
+        name: '',
+        email: '',
+        phone: '',
     },
 };
 
@@ -18,12 +13,18 @@ const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
-        updateForm: (state, action) => {
-            return { ...state, ...(action.payload as FormData) };
+        updateYourInfo: (state: FormData, action) => {
+            state.yourInfo = action.payload;
         },
     },
 });
 
-export const { updateForm } = formSlice.actions;
+export const { updateYourInfo } = formSlice.actions;
+
+const getYourInfo = (state: FormState) => {
+    return state.form.yourInfo;
+};
+
+export { getYourInfo };
 
 export default formSlice.reducer;
