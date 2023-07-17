@@ -2,6 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 :root {
+    --max-content-width: 1110px;
+    --max-design-width: 1440px;
+    --base-fsz: 62.5%;
+    --body-ffam: 'Ubuntu', sans-serif;
+    --body-fsz: 1.6rem;
+    --body-lht: 1.5;
     /* COLORS */
     --input-border-color: #D6D9E6;
     --light-denim: #164A8A;
@@ -17,40 +23,51 @@ const GlobalStyle = createGlobalStyle`
     --sky-blue: #BEE2FD;
     --white: #fff;
     --black: #000;
-    /* WEBSITE */
-    --website-font: 'Ubuntu', sans-serif;
-    --website-padding-sm: 8px;
-    --website-padding-md: 16px;
-    --website-padding-lg: 32px;
-    --website-margin-sm: 8px;
-    --website-margin-md: 16px;
-    --website-margin-lg: 32px;
-    --base-font-size: 62.5%;
+    /* SPACING */
+    --web-padding-xs: 4px;
+    --web-padding-s: 8px;
+    --web-padding-m: 16px;
+    --web-padding-l: 24px;
+    --web-padding-xl: 32px;
+    --web-padding-xl2: 40px;
+    --web-margin-xs: 4px;
+    --web-margin-s: 8px;
+    --web-margin-m: 16px;
+    --web-margin-l: 24px;
+    --web-margin-xl: 32px;
+    --web-margin-xl2: 40px;
     /* BODY */
-    --body-font-size: 1.6rem;
-    --body-line-height: 1.5;
-    --body-background-color: #EFF5FF;
+    --body-bg-color: #EFF5FF;
     --body-font-color: var(--denim);
     /* CARD */
     --card-border-radius: 10px;
     --card-box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
     /* STEPS */
-    --ellipse-size: 33px;
-    --ellipse-number-size: 1.4rem;
+    --ellipse-sz: 33px;
+    --ellipse-number-sz: 1.4rem;
     --ellipse-color: var(--white);
-    --step-text-size: 1.2rem;
-    --step-title-size: 1.4rem;
+    --step-text-sz: 1.2rem;
+    --step-title-sz: 1.4rem;
     /* INPUTS */
-    --input-border-radius: 8px;
-    --input-size: 48px;
-    --toggler-size: 20px;
-    --toggler-ball-size: 12px;
-    --checkbox-size: 20px;
+    --input-border-rad: 8px;
+    --input-sz: 48px;
+    --toggler-sz: 20px;
+    --toggler-ball-sz: 12px;
+    --checkbox-sz: 20px;
     /* BUTTONS */
-    --button-border-radius: 4px;
+    --button-border-rad: 4px;
     /* ATTRIBUTION */
-    --attribution-radius: 10px;
+    --attribution-rad: 10px;
     --attribution-box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+    /* MEDIA */
+    --media-min: 20em; /* 320px */
+    --media-tablet: 30em; /* 480px */
+    --media-tablet-small-desktop: 38.75em; /* 620px */
+    --media-small-desktop: 48em; /* 768px */
+    --media-s-l-desktop: 56.25em; /* 900px */
+    --media-large-desktop: 64em; /* 1024px */
+    --large-desktop-max: 77em; /* 1232px */
+    --media-max: 90em; /* 1440px */
 }
 
 * {
@@ -63,21 +80,28 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     width: 100%;
-    font-size: var(--base-font-size);
-    font-family: sans-serif;
     box-sizing: border-box;
+    font-size: var(--base-fsz);
+    font-family: sans-serif;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
 }
 
 body {
+    background-color: var(--body-bg-color);
     color: var(--body-font-color);
-    font-size: var(--body-font-size);
-    line-height: var(--body-line-height);
+    font-size: var(--body-fsz);
+    font-family: var(--body-ffam);
+    line-height: var(--body-lht);
     overflow-x: hidden;
-    font-family: var(--website-font);
-    background-color: var(--body-background-color);
 }
 
-img {
+main {
+    width: 100%;
+}
+
+img,
+svg {
     width: auto;
     max-width: 100%;
     vertical-align: middle;
@@ -92,6 +116,30 @@ a:link {
 a:visited:hover,
 a:link:hover {
     text-decoration: underline;
+}
+
+#root {
+    overflow-x: hidden;
+}
+
+.component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .component__container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex-basis: var(--max-design-width);
+    }
+
+    .component__content {
+        flex-basis: var(--max-content-width);
+    }
 }
 
 .visually-hidden {
@@ -115,6 +163,30 @@ a:link:hover {
     flex-wrap: wrap;
     overflow-x: hidden;
 }
+
+// 480px
+@media only screen and (min-width: 30em) {}
+
+// 620px
+@media only screen and (min-width: 38.75em) {}
+
+// 768px
+@media only screen and (min-width: 48em) {}
+
+// 900px
+@media only screen and (min-width: 56.25em) {}
+
+// 1024px
+@media only screen and (min-width: 64em) {}
+
+// 1232px
+@media only screen and (min-width: 77em) {}
+
+// 1336px
+@media only screen and (min-width: 83.5em) {}
+
+// 1440px
+@media only screen and (min-width: 90em) {}
 `;
 
 export default GlobalStyle;
