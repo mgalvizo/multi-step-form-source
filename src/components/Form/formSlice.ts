@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type FormData = {
-    name?: null | string;
-    email?: null | string;
-    phone?: null | string;
+    name?: string;
+    email?: string;
+    phone?: string;
 };
 
 const initialState = {
     form: {
-        name: null,
-        email: null,
-        phone: null,
+        name: undefined,
+        email: undefined,
+        phone: undefined,
     },
 };
 
