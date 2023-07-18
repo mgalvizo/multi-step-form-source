@@ -23,7 +23,8 @@ const SelectPlan = () => {
     const selectPlan = useSelector(getSelectPlan);
 
     if (!selectPlan) {
-        // true will become "monthly", false will become "yearly"
+        // true will make billingPeriod.monthly === true
+        // false will make billingPeriod.yearly === true
         defaultValues = {
             plan: 'arcade',
             billingPeriod: true,
@@ -53,7 +54,7 @@ const SelectPlan = () => {
 
     const onSubmit = (data: SelectPlanType) => {
         // data would NOT match Redux state since checkbox only returns true or false
-        // Redux is converting that result into "monthly" or "yearly"
+        // Redux is converting that result into the proper Redux data shape
         dispatch(updateSelectPlan(data));
         navigate('/pick-addons');
     };
