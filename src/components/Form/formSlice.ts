@@ -9,7 +9,10 @@ const initialState: FormData = {
     },
     selectPlan: {
         plan: 'arcade',
-        billingPeriod: 'monthly',
+        billingPeriod: {
+            monthly: true,
+            yearly: false,
+        },
     },
 };
 
@@ -21,7 +24,15 @@ const formSlice = createSlice({
             state.yourInfo = action.payload;
         },
         updateSelectPlan: (state: FormData, action) => {
-            state.selectPlan = action.payload;
+            state.selectPlan.plan = action.payload.plan;
+
+            if (action.payload.billingPeriod) {
+                state.selectPlan.billingPeriod.monthly = true;
+                state.selectPlan.billingPeriod.yearly = false;
+            } else {
+                state.selectPlan.billingPeriod.yearly = true;
+                state.selectPlan.billingPeriod.monthly = false;
+            }
         },
     },
 });

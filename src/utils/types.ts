@@ -5,17 +5,26 @@ export type YourInfoType = {
 };
 
 type Plan = 'arcade' | 'advanced' | 'pro';
-type BillingPeriod = 'monthly' | 'yearly';
+type BillingPeriod = {
+    monthly: boolean;
+    yearly: boolean;
+};
 
-export type SelectPlanType = {
+export type SelectPlanTypeData = {
     plan: Plan;
     billingPeriod: BillingPeriod;
+};
+
+// Typing for the "Toogle Switch" checkbox since it only returns true or false
+export type SelectPlanType = {
+    plan: Plan;
+    billingPeriod: boolean;
 };
 
 // Form data shape
 export type FormData = {
     yourInfo: YourInfoType;
-    selectPlan: SelectPlanType;
+    selectPlan: SelectPlanTypeData;
 };
 
 // Store state shape

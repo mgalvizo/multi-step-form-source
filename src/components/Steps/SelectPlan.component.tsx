@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import StyledSelectPlan from '../styled/SelectPlan.styled';
 import StyledForm from '../styled/Form.styled';
 import Button from '../UI/Button.component';
-import { useMoveBack } from '../../hooks/useMoveBack';
 import { SelectPlanType } from '../../utils/types';
+import { useMoveBack } from '../../hooks/useMoveBack';
 import { getSelectPlan, updateSelectPlan } from '../Form/formSlice';
 import StyledHeading from '../styled/Heading.styled';
 import FormRadioControl from '../Form/FormRadioControl.component';
@@ -23,14 +23,21 @@ const SelectPlan = () => {
     const selectPlan = useSelector(getSelectPlan);
 
     if (!selectPlan) {
+        // true will become "monthly", false will become "yearly"
         defaultValues = {
             plan: 'arcade',
-            billingPeriod: 'monthly',
+            billingPeriod: true,
         };
     }
 
     if (selectPlan) {
-        defaultValues = { ...selectPlan };
+        if (selectPlan.billingPeriod.monthly) {
+            defaultValues = { ...selectPlan, billingPeriod: true };
+        }
+
+        if (selectPlan.billingPeriod.yearly) {
+            defaultValues = { ...selectPlan, billingPeriod: false };
+        }
     }
 
     const {
@@ -38,16 +45,17 @@ const SelectPlan = () => {
         register,
         handleSubmit,
         formState: { isSubmitting },
-        getValues,
     } = useForm<SelectPlanType>({ defaultValues });
 
     const watchBillingPeriod = watch('billingPeriod');
-    console.log(watchBillingPeriod);
 
     const moveBack = useMoveBack();
 
     const onSubmit = (data: SelectPlanType) => {
+        // data would NOT match Redux state since checkbox only returns true or false
+        // Redux is converting that result into "monthly" or "yearly"
         dispatch(updateSelectPlan(data));
+        navigate('/pick-addons');
     };
 
     return (
@@ -64,11 +72,9 @@ const SelectPlan = () => {
                         <FormRadioControl
                             labelText="Arcade"
                             billingQuantity={
-                                watchBillingPeriod === 'monthly'
-                                    ? '$9/mo'
-                                    : '$90/yr'
+                                watchBillingPeriod ? '$9/mo' : '$90/yr'
                             }
-                            period={watchBillingPeriod}
+                            isMonthly={watchBillingPeriod}
                             icon={<Arcade />}
                         >
                             <input
@@ -82,11 +88,9 @@ const SelectPlan = () => {
                         <FormRadioControl
                             labelText="Advanced"
                             billingQuantity={
-                                watchBillingPeriod === 'monthly'
-                                    ? '$12/mo'
-                                    : '$120/yr'
+                                watchBillingPeriod ? '$12/mo' : '$120/yr'
                             }
-                            period={watchBillingPeriod}
+                            isMonthly={watchBillingPeriod}
                             icon={<Advanced />}
                         >
                             <input
@@ -100,11 +104,9 @@ const SelectPlan = () => {
                         <FormRadioControl
                             labelText="Pro"
                             billingQuantity={
-                                watchBillingPeriod === 'monthly'
-                                    ? '$15/mo'
-                                    : '$150/yr'
+                                watchBillingPeriod ? '$15/mo' : '$150/yr'
                             }
-                            period={watchBillingPeriod}
+                            isMonthly={watchBillingPeriod}
                             icon={<Pro />}
                         >
                             <input
@@ -118,20 +120,10 @@ const SelectPlan = () => {
                     </fieldset>
                     <fieldset>
                         <legend>Select Billing Period</legend>
-                        <FormSwitchControl labelText="Monthly">
+                        <FormSwitchControl labelText="Billing Period">
                             <input
-                                type="radio"
-                                value="monthly"
-                                id="monthly"
-                                {...register('billingPeriod')}
-                            />
-                        </FormSwitchControl>
-                        <strong>ToggleSwitchDecoration</strong>
-                        <FormSwitchControl labelText="Yearly">
-                            <input
-                                type="radio"
-                                value="yearly"
-                                id="yearly"
+                                type="checkbox"
+                                id="billingPeriod"
                                 {...register('billingPeriod')}
                             />
                         </FormSwitchControl>

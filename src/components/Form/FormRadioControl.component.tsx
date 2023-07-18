@@ -5,7 +5,7 @@ interface FormRadioControlProps {
     children?: JSX.Element;
     labelText: string;
     billingQuantity: string;
-    period: string;
+    isMonthly: boolean;
     icon: JSX.Element;
 }
 
@@ -13,7 +13,7 @@ const FormRadioControl = ({
     children,
     labelText,
     billingQuantity,
-    period,
+    isMonthly,
     icon,
 }: FormRadioControlProps) => {
     return (
@@ -23,7 +23,7 @@ const FormRadioControl = ({
                 {icon}
                 <h3>{labelText}</h3>
                 <p>{billingQuantity}</p>
-                {period === 'yearly' && <p>2 months free</p>}
+                {!isMonthly && <p>2 months free</p>}
             </label>
         </StyledFormRadioControl>
     );

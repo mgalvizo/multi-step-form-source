@@ -3,6 +3,7 @@ import GlobalStyle from './components/styled/GlobalStyle.styled';
 import AppLayout from './components/pages/AppLayout.component';
 import YourInfo from './components/Steps/YourInfo.component';
 import SelectPlan from './components/Steps/SelectPlan.component';
+import PickAddons from './components/Steps/PickAddons.component';
 import PageNotFound from './components/pages/PageNotFound.component';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                         />
                         <Route path="personal-info" element={<YourInfo />} />
                         <Route path="select-plan" element={<SelectPlan />} />
+                        <Route path="pick-addons" element={<PickAddons />} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
