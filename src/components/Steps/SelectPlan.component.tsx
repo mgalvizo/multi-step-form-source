@@ -5,7 +5,6 @@ import StyledSelectPlan from '../styled/SelectPlan.styled';
 import StyledForm from '../styled/Form.styled';
 import Button from '../UI/Button.component';
 import { SelectPlanType } from '../../utils/types';
-import { useMoveBack } from '../../hooks/useMoveBack';
 import { getSelectPlan, updateSelectPlan } from '../Form/formSlice';
 import StyledHeading from '../styled/Heading.styled';
 import FormRadioControl from '../Form/FormRadioControl.component';
@@ -50,12 +49,19 @@ const SelectPlan = () => {
 
     const watchBillingPeriod = watch('billingPeriod');
 
-    const moveBack = useMoveBack();
-
     const onSubmit = (data: SelectPlanType) => {
         // data would NOT match Redux state since checkbox only returns true or false
         // Redux is converting that result into the proper Redux data shape
         dispatch(updateSelectPlan(data));
+    };
+
+    const goBack = () => {
+        handleSubmit(onSubmit)();
+        navigate('/personal-info');
+    };
+
+    const goNext = () => {
+        handleSubmit(onSubmit)();
         navigate('/pick-addons');
     };
 
@@ -69,7 +75,7 @@ const SelectPlan = () => {
                     autoComplete="off"
                 >
                     <fieldset>
-                        <legend>Select Plan</legend>
+                        <legend className="visually-hidden">Select Plan</legend>
                         <FormRadioControl
                             labelText="Arcade"
                             billingQuantity={
@@ -83,6 +89,7 @@ const SelectPlan = () => {
                                 value="arcade"
                                 id="arcade"
                                 className="visually-hidden"
+                                disabled={isSubmitting}
                                 {...register('plan')}
                             />
                         </FormRadioControl>
@@ -99,6 +106,7 @@ const SelectPlan = () => {
                                 value="advanced"
                                 id="advanced"
                                 className="visually-hidden"
+                                disabled={isSubmitting}
                                 {...register('plan')}
                             />
                         </FormRadioControl>
@@ -115,6 +123,7 @@ const SelectPlan = () => {
                                 value="pro"
                                 id="pro"
                                 className="visually-hidden"
+                                disabled={isSubmitting}
                                 {...register('plan')}
                             />
                         </FormRadioControl>
@@ -125,18 +134,23 @@ const SelectPlan = () => {
                             <input
                                 type="checkbox"
                                 id="billingPeriod"
+                                disabled={isSubmitting}
                                 {...register('billingPeriod')}
                             />
                         </FormSwitchControl>
                     </fieldset>
                     <Button
                         type="button"
+                        onClick={goBack}
                         disabled={isSubmitting}
-                        onClick={moveBack}
                     >
                         Go Back
                     </Button>
-                    <Button type="submit" disabled={isSubmitting}>
+                    <Button
+                        type="button"
+                        onClick={goNext}
+                        disabled={isSubmitting}
+                    >
                         Next Step
                     </Button>
                 </StyledForm>

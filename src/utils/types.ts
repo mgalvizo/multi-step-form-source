@@ -1,4 +1,4 @@
-export type YourInfoType = {
+export type PersonalInfoType = {
     name: string;
     email: string;
     phone: string;
@@ -21,10 +21,17 @@ export type SelectPlanType = {
     billingPeriod: boolean;
 };
 
+export type PickAddonsType = {
+    onlineService: boolean;
+    largerStorage: boolean;
+    customizableProfile: boolean;
+};
+
 // Form data shape
 export type FormData = {
-    yourInfo: YourInfoType;
+    personalInfo: PersonalInfoType;
     selectPlan: SelectPlanTypeData;
+    pickAddons: PickAddonsType;
 };
 
 // Store state shape

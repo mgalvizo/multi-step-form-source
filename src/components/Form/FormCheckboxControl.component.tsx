@@ -1,33 +1,30 @@
 import { JSX } from 'react';
-import StyledFormRadioControl from '../styled/FormRadioControl';
+import StyledFormCheckboxControl from '../styled/FormCheckboxControl.styled';
 import StyledHeading from '../styled/Heading.styled';
 
-interface FormRadioControlProps {
+interface FormCheckboxControlProps {
     children?: JSX.Element;
     labelText: string;
+    extraText: string;
     billingQuantity: string;
-    isMonthly: boolean;
-    icon: JSX.Element;
 }
 
-const FormRadioControl = ({
+const FormCheckboxControl = ({
     children,
     labelText,
+    extraText,
     billingQuantity,
-    isMonthly,
-    icon,
-}: FormRadioControlProps) => {
+}: FormCheckboxControlProps) => {
     return (
-        <StyledFormRadioControl>
+        <StyledFormCheckboxControl>
             {children}
             <label htmlFor={children?.props.id}>
-                {icon}
                 <StyledHeading as="h3">{labelText}</StyledHeading>
+                <p>{extraText}</p>
                 <p>{billingQuantity}</p>
-                {!isMonthly && <p>2 months free</p>}
             </label>
-        </StyledFormRadioControl>
+        </StyledFormCheckboxControl>
     );
 };
 
-export default FormRadioControl;
+export default FormCheckboxControl;

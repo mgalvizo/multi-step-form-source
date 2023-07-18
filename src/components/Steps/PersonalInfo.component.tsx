@@ -1,24 +1,24 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useForm, FieldErrors } from 'react-hook-form';
-import StyledYourInfo from '../styled/YourInfo.styled';
+import { useForm } from 'react-hook-form';
+import StyledPersonalInfo from '../styled/PersonalInfo.styled';
 import StyledForm from '../styled/Form.styled';
 import StyledHeading from '../styled/Heading.styled';
 import FormInputControl from '../Form/FormInputControl.component';
 import { EMAIL_REGEX, PHONE_REGEX } from '../../utils/constants';
 import Button from '../UI/Button.component';
-import { getYourInfo, updateYourInfo } from '../Form/formSlice';
-import { YourInfoType } from '../../utils/types';
+import { getPersonalInfo, updatePersonalInfo } from '../Form/formSlice';
+import { PersonalInfoType } from '../../utils/types';
 
-const YourInfo = () => {
+const PersonalInfo = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let defaultValues: YourInfoType | undefined;
+    let defaultValues: PersonalInfoType | undefined;
 
-    const yourInfo = useSelector(getYourInfo);
+    const personalInfo = useSelector(getPersonalInfo);
 
-    if (!yourInfo) {
+    if (!personalInfo) {
         defaultValues = {
             name: '',
             email: '',
@@ -26,34 +26,30 @@ const YourInfo = () => {
         };
     }
 
-    if (yourInfo) {
-        defaultValues = { ...yourInfo };
+    if (personalInfo) {
+        defaultValues = { ...personalInfo };
     }
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm<YourInfoType>({ defaultValues });
+    } = useForm<PersonalInfoType>({ defaultValues });
 
-    const onSubmit = (data: YourInfoType): void => {
-        dispatch(updateYourInfo(data));
+    const onSubmit = (data: PersonalInfoType): void => {
+        dispatch(updatePersonalInfo(data));
         navigate('/select-plan');
     };
 
-    const onError = (errors: FieldErrors): void => {
-        console.log(errors);
-    };
-
     return (
-        <StyledYourInfo className="component">
+        <StyledPersonalInfo className="component">
             <div className="component__content">
                 <StyledHeading as="h1">Personal Info</StyledHeading>
                 <p>
                     Please provide your name, email address, and phone number.
                 </p>
                 <StyledForm
-                    onSubmit={handleSubmit(onSubmit, onError)}
+                    onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
                 >
                     <fieldset>
@@ -118,8 +114,8 @@ const YourInfo = () => {
                     </Button>
                 </StyledForm>
             </div>
-        </StyledYourInfo>
+        </StyledPersonalInfo>
     );
 };
 
-export default YourInfo;
+export default PersonalInfo;
