@@ -1,24 +1,24 @@
 import { JSX } from 'react';
-import StyledFormControl from '../styled/FormControl.styled';
+import StyledFormInputControl from '../styled/FormInputControl.styled';
 
-interface FormControlProps {
+interface FormInputControlProps {
     children?: JSX.Element;
     labelText?: string;
     errorMessage?: string;
 }
 
-const FormControl = ({
+const FormInputControl = ({
     children,
     labelText,
     errorMessage,
-}: FormControlProps) => {
+}: FormInputControlProps) => {
     return (
-        <StyledFormControl>
+        <StyledFormInputControl>
             <label htmlFor={children?.props.id}>{labelText}</label>
             {children}
             {errorMessage && <span>{errorMessage}</span>}
-        </StyledFormControl>
+        </StyledFormInputControl>
     );
 };
 
-export default FormControl;
+export default FormInputControl;

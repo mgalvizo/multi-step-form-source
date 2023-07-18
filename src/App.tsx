@@ -9,6 +9,8 @@ const App = () => {
     return (
         <>
             <GlobalStyle />
+            {/* TODO Protect all routes before deploying so next step is not accessible
+            if previous step wasn't completed */}
             <HashRouter>
                 <Routes>
                     <Route element={<AppLayout />}>

@@ -4,9 +4,18 @@ export type YourInfoType = {
     phone: string;
 };
 
+type Plan = 'arcade' | 'advanced' | 'pro';
+type BillingPeriod = 'monthly' | 'yearly';
+
+export type SelectPlanType = {
+    plan: Plan;
+    billingPeriod: BillingPeriod;
+};
+
 // Form data shape
 export type FormData = {
     yourInfo: YourInfoType;
+    selectPlan: SelectPlanType;
 };
 
 // Store state shape
