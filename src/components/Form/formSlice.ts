@@ -48,6 +48,10 @@ const formSlice = createSlice({
 export const { updatePersonalInfo, updateSelectPlan, updatePickAddons } =
     formSlice.actions;
 
+const getFormState = (state: FormState) => {
+    return state.form;
+};
+
 const getPersonalInfo = (state: FormState) => {
     return state.form.personalInfo;
 };
@@ -60,6 +64,6 @@ const getPickAddons = (state: FormState) => {
     return state.form.pickAddons;
 };
 
-export { getPersonalInfo, getSelectPlan, getPickAddons };
+export { getPersonalInfo, getSelectPlan, getPickAddons, getFormState };
 
 export default formSlice.reducer;
