@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import StyledSelectPlan from '../styled/SelectPlan.styled';
-import StyledForm from '../styled/Form.styled';
+import StyledSelectPlan from '../styled/Steps/SelectPlan.styled';
+import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
 import { SelectPlanType } from '../../utils/types';
 import { getSelectPlan, updateSelectPlan } from '../Form/formSlice';
-import StyledHeading from '../styled/Heading.styled';
+import StyledHeading from '../styled/UI/Heading.styled';
 import FormRadioControl from '../Form/FormRadioControl.component';
 import { ReactComponent as Arcade } from '../../assets/icon-arcade.svg';
 import { ReactComponent as Advanced } from '../../assets/icon-advanced.svg';

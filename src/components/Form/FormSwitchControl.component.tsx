@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import StyledFormSwitchControl from '../styled/FormSwitchControl.styled';
+import StyledFormSwitchControl from '../styled/Form/FormSwitchControl.styled';
 
 interface StyledFormSwitchControlProps {
     children?: JSX.Element;

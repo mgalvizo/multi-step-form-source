@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import StyledAppLayout from '../styled/AppLayout.styled';
+import StyledAppLayout from '../styled/Pages/AppLayout.styled';
 import Attribution from '../Attribution.component';
 
 const AppLayout = () => {

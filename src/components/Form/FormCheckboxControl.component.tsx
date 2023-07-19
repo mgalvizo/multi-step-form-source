@@ -1,6 +1,6 @@
 import { JSX } from 'react';
-import StyledFormCheckboxControl from '../styled/FormCheckboxControl.styled';
-import StyledHeading from '../styled/Heading.styled';
+import StyledFormCheckboxControl from '../styled/Form/FormCheckboxControl.styled';
+import StyledHeading from '../styled/UI/Heading.styled';
 
 interface FormCheckboxControlProps {
     children?: JSX.Element;

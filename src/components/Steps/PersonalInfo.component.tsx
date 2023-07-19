@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import StyledPersonalInfo from '../styled/PersonalInfo.styled';
-import StyledForm from '../styled/Form.styled';
-import StyledHeading from '../styled/Heading.styled';
+import StyledPersonalInfo from '../styled/Steps/PersonalInfo.styled';
+import StyledForm from '../styled/Form/Form.styled';
+import StyledHeading from '../styled/UI/Heading.styled';
 import FormInputControl from '../Form/FormInputControl.component';
 import { EMAIL_REGEX, PHONE_REGEX } from '../../utils/constants';
 import Button from '../UI/Button.component';

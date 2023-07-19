@@ -1,6 +1,6 @@
 import { JSX } from 'react';
-import StyledFormRadioControl from '../styled/FormRadioControl';
-import StyledHeading from '../styled/Heading.styled';
+import StyledFormRadioControl from '../styled/Form/FormRadioControl';
+import StyledHeading from '../styled/UI/Heading.styled';
 
 interface FormRadioControlProps {
     children?: JSX.Element;

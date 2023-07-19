@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import StyledFormInputControl from '../styled/FormInputControl.styled';
+import StyledFormInputControl from '../styled/Form/FormInputControl.styled';
 
 interface FormInputControlProps {
     children?: JSX.Element;

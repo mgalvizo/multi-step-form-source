@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import StyledPickAddons from '../styled/PickAddons.styled';
-import StyledHeading from '../styled/Heading.styled';
-import StyledForm from '../styled/Form.styled';
+import StyledPickAddons from '../styled/Steps/PickAddons.styled';
+import StyledHeading from '../styled/UI/Heading.styled';
+import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
 import { PickAddonsType } from '../../utils/types';
 import {

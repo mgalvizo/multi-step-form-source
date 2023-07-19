@@ -1,5 +1,5 @@
-import StyledThankYou from '../styled/ThankYou.styled';
-import StyledHeading from '../styled/Heading.styled';
+import StyledThankYou from '../styled/Steps/ThankYou.styled';
+import StyledHeading from '../styled/UI/Heading.styled';
 import { ReactComponent as TYIcon } from '../../assets/icon-thank-you.svg';
 
 const ThankYou = () => {
