@@ -7,16 +7,22 @@ import PickAddons from './components/Steps/PickAddons.component';
 import FinishingUp from './components/Steps/FinishingUp.component';
 import ThankYou from './components/Steps/ThankYou.component';
 import PageNotFound from './components/Pages/PageNotFound.component';
+import ProtectedRoute from './ProtectedRoute.component';
 
 const App = () => {
     return (
         <>
             <GlobalStyle />
-            {/* TODO Protect all routes before deploying so next step is not accessible
-            if previous step wasn't completed */}
+            {/* TODO Protect routes probably individually */}
             <HashRouter>
                 <Routes>
-                    <Route element={<AppLayout />}>
+                    <Route
+                        element={
+                            <ProtectedRoute>
+                                <AppLayout />
+                            </ProtectedRoute>
+                        }
+                    >
                         <Route
                             index
                             element={<Navigate replace to="personal-info" />}

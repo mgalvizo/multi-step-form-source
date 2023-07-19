@@ -23,7 +23,11 @@ const PickAddons = () => {
 
     const pickAddons = useSelector(getPickAddons);
 
-    if (!pickAddons) {
+    const isPickAddonsUnselected = Object.values(pickAddons).every(
+        value => value === false
+    );
+
+    if (isPickAddonsUnselected) {
         defaultValues = {
             onlineService: true,
             largerStorage: true,
@@ -31,7 +35,7 @@ const PickAddons = () => {
         };
     }
 
-    if (pickAddons) {
+    if (!isPickAddonsUnselected) {
         defaultValues = { ...pickAddons };
     }
 

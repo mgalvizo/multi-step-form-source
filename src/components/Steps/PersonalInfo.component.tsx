@@ -18,7 +18,11 @@ const PersonalInfo = () => {
 
     const personalInfo = useSelector(getPersonalInfo);
 
-    if (!personalInfo) {
+    const isPersonalInfoEmpty = Object.values(personalInfo).every(
+        value => value === ''
+    );
+
+    if (isPersonalInfoEmpty) {
         defaultValues = {
             name: '',
             email: '',
@@ -26,7 +30,7 @@ const PersonalInfo = () => {
         };
     }
 
-    if (personalInfo) {
+    if (!isPersonalInfoEmpty) {
         defaultValues = { ...personalInfo };
     }
 

@@ -4,7 +4,7 @@ export type PersonalInfoType = {
     phone: string;
 };
 
-type Plan = 'arcade' | 'advanced' | 'pro';
+type Plan = 'arcade' | 'advanced' | 'pro' | '';
 type BillingPeriod = {
     monthly: boolean;
     yearly: boolean;
@@ -32,6 +32,7 @@ export type FormData = {
     personalInfo: PersonalInfoType;
     selectPlan: SelectPlanTypeData;
     pickAddons: PickAddonsType;
+    isComplete: boolean;
 };
 
 // Store state shape

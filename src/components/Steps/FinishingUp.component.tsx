@@ -1,13 +1,15 @@
 import { useNavigate, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import StyledFinishingUp from '../styled/Steps/FinishingUp.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import Button from '../UI/Button.component';
-import { getFormState } from '../Form/formSlice';
+import { getFormState, completeForm } from '../Form/formSlice';
 import { formatQuantity } from '../../utils/helpers';
 
 const FinishingUp = () => {
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const { selectPlan, pickAddons } = useSelector(getFormState);
 
@@ -16,6 +18,7 @@ const FinishingUp = () => {
     };
 
     const goNext = () => {
+        dispatch(completeForm(null));
         navigate('/thank-you');
     };
 

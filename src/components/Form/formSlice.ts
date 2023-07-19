@@ -8,17 +8,18 @@ const initialState: FormData = {
         phone: '',
     },
     selectPlan: {
-        plan: 'arcade',
+        plan: '',
         billingPeriod: {
-            monthly: true,
+            monthly: false,
             yearly: false,
         },
     },
     pickAddons: {
-        onlineService: true,
-        largerStorage: true,
+        onlineService: false,
+        largerStorage: false,
         customizableProfile: false,
     },
+    isComplete: false,
 };
 
 const formSlice = createSlice({
@@ -42,11 +43,18 @@ const formSlice = createSlice({
         updatePickAddons: (state: FormData, action) => {
             state.pickAddons = action.payload;
         },
+        completeForm: (state: FormData, action) => {
+            return { ...initialState, isComplete: true };
+        },
     },
 });
 
-export const { updatePersonalInfo, updateSelectPlan, updatePickAddons } =
-    formSlice.actions;
+export const {
+    updatePersonalInfo,
+    updateSelectPlan,
+    updatePickAddons,
+    completeForm,
+} = formSlice.actions;
 
 const getFormState = (state: FormState) => {
     return state.form;

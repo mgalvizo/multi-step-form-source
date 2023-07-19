@@ -21,7 +21,12 @@ const SelectPlan = () => {
 
     const selectPlan = useSelector(getSelectPlan);
 
-    if (!selectPlan) {
+    const isPlanEmpty = selectPlan.plan === '';
+    const isBillingPeriodUnselected = Object.values(
+        selectPlan.billingPeriod
+    ).every(value => value === false);
+
+    if (isPlanEmpty && isBillingPeriodUnselected) {
         // true will make billingPeriod.monthly === true
         // false will make billingPeriod.yearly === true
         defaultValues = {
@@ -30,7 +35,7 @@ const SelectPlan = () => {
         };
     }
 
-    if (selectPlan) {
+    if (!isPlanEmpty && !isBillingPeriodUnselected) {
         if (selectPlan.billingPeriod.monthly) {
             defaultValues = { ...selectPlan, billingPeriod: true };
         }
