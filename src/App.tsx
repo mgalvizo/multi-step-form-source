@@ -13,7 +13,6 @@ const App = () => {
     return (
         <>
             <GlobalStyle />
-            {/* TODO Protect routes probably individually */}
             <HashRouter>
                 <Routes>
                     <Route
