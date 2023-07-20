@@ -19,9 +19,10 @@ const FormCheckboxControl = ({
         <StyledFormCheckboxControl>
             {children}
             <label htmlFor={children?.props.id}>
+                <div className="checkbox"></div>
                 <StyledHeading as="h3">{labelText}</StyledHeading>
-                <p>{extraText}</p>
-                <p>{billingQuantity}</p>
+                <p className="extra-text">{extraText}</p>
+                <p className="billing-quantity">{billingQuantity}</p>
             </label>
         </StyledFormCheckboxControl>
     );

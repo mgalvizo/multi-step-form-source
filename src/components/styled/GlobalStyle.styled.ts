@@ -65,9 +65,11 @@ const GlobalStyle = createGlobalStyle`
     --input-fsz-m: 1.6rem;
     --switch-wt: 38px;
     --switch-ht: 20px;
-    --toggler-sz: 20px;
     --toggler-ball-sz: 12px;
     --checkbox-sz: 20px;
+    --checkbox-border-radius: 6px;
+    --checkmark-wt: 3px;
+    --checkmark-ht: 7px;
     /* BUTTONS */
     --button-border-rad: 4px;
     --button-fsz-s: 1.2rem;

@@ -82,6 +82,7 @@ const PickAddons = () => {
                             }
                         >
                             <input
+                                className="visually-hidden"
                                 type="checkbox"
                                 id="onlineService"
                                 disabled={isSubmitting}
@@ -96,6 +97,7 @@ const PickAddons = () => {
                             }
                         >
                             <input
+                                className="visually-hidden"
                                 type="checkbox"
                                 id="largerStorage"
                                 disabled={isSubmitting}
@@ -110,6 +112,7 @@ const PickAddons = () => {
                             }
                         >
                             <input
+                                className="visually-hidden"
                                 type="checkbox"
                                 id="customizableProfile"
                                 disabled={isSubmitting}
