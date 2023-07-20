@@ -100,7 +100,7 @@ const PersonalInfo = () => {
                             <input
                                 type="text"
                                 id="phone"
-                                placeholder="e.g. +1 234 567 890"
+                                placeholder="e.g. +1 123 456 7890"
                                 disabled={isSubmitting}
                                 {...register('phone', {
                                     required: 'This field is required',

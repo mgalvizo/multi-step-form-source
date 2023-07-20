@@ -49,31 +49,35 @@ const FinishingUp = () => {
 
     const onlineServiceContent = (
         <li>
-            Online Service + {formatQuantity(onlineServiceQuantity, isMonthly)}
+            Online Service{' '}
+            <span>+{formatQuantity(onlineServiceQuantity, isMonthly)}</span>
         </li>
     );
 
     const largerStorageContent = (
         <li>
-            Larger storage + {formatQuantity(largerStorageQuantity, isMonthly)}
+            Larger storage{' '}
+            <span>+{formatQuantity(largerStorageQuantity, isMonthly)}</span>
         </li>
     );
 
     const customizableProfileContent = (
         <li>
-            Customizable profile +
-            {formatQuantity(customizableProfileQuantity, isMonthly)}
+            Customizable profile{' '}
+            <span>
+                +{formatQuantity(customizableProfileQuantity, isMonthly)}
+            </span>
         </li>
     );
 
-    let result: number;
+    let total: number;
 
     if (hasAddons) {
-        result = QUANTITIES.reduce((accumulator, currentValue) => {
+        total = QUANTITIES.reduce((accumulator, currentValue) => {
             return accumulator + currentValue;
         }, 0);
     } else {
-        result = billingPeriodQuantity;
+        total = billingPeriodQuantity;
     }
 
     return (
@@ -84,25 +88,35 @@ const FinishingUp = () => {
                     Double-check everything looks OK before confirming.
                 </p>
                 <div className="summary">
-                    <StyledHeading as="h3">
-                        {plan} ({billingPeriod})
-                    </StyledHeading>
-                    <p>
-                        <Link to="/select-plan">Change</Link>
-                    </p>
-                    <p>{formatQuantity(billingPeriodQuantity, isMonthly)}</p>
-                    {hasAddons && (
-                        <ul className="addons">
-                            {pickAddons.onlineService && onlineServiceContent}
-                            {pickAddons.largerStorage && largerStorageContent}
-                            {pickAddons.customizableProfile &&
-                                customizableProfileContent}
-                        </ul>
-                    )}
-                    <p>
-                        Total (per {isMonthly ? 'month' : 'year'}){' '}
-                        {formatQuantity(result, isMonthly)}
-                    </p>
+                    <div className="plan__info">
+                        <StyledHeading as="h3">
+                            {plan} ({billingPeriod})
+                        </StyledHeading>
+                        <p className="link__container">
+                            <Link to="/select-plan">Change</Link>
+                        </p>
+                        <strong className="billing-period-quantity">
+                            {formatQuantity(billingPeriodQuantity, isMonthly)}
+                        </strong>
+                    </div>
+                    <div className="addons__info">
+                        {hasAddons && (
+                            <ul className="addons">
+                                {pickAddons.onlineService &&
+                                    onlineServiceContent}
+                                {pickAddons.largerStorage &&
+                                    largerStorageContent}
+                                {pickAddons.customizableProfile &&
+                                    customizableProfileContent}
+                            </ul>
+                        )}
+                    </div>
+                </div>
+                <div className="total__info">
+                    <p>Total (per {isMonthly ? 'month' : 'year'})</p>
+                    <strong className="total-quantity">
+                        +{formatQuantity(total, isMonthly)}
+                    </strong>
                 </div>
                 <Button type="button" onClick={goBack} kind="back">
                     Go Back

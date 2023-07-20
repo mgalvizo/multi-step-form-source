@@ -40,9 +40,9 @@ const GlobalStyle = createGlobalStyle`
     /* BODY */
     --body-bg-color: #EFF5FF;
     --body-font-color: var(--denim);
-    /* CARD */
-    --card-border-radius: 10px;
-    --card-box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+    /* FORM */
+    --form-border-radius: 10px;
+    --form-box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
     /* STEPS */
     --ellipse-sz: 33px;
     --ellipse-number-sz: 1.4rem;
@@ -126,13 +126,13 @@ svg {
 
 a:visited,
 a:link {
-    color: var(--purple);
-    text-decoration: none;
+    color: var(--gray);
+    text-decoration: underline;
 }
 
 a:visited:hover,
 a:link:hover {
-    text-decoration: underline;
+    color: var(--purple);
 }
 
 #root {
