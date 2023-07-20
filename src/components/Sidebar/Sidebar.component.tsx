@@ -4,10 +4,10 @@ import SidebarList from './SidebarList.component';
 import SidebarItem from './SidebarItem.component';
 
 const STEPS = [
-    { id: uuidv4(), title: 'Your Info' },
-    { id: uuidv4(), title: 'Select Plan' },
-    { id: uuidv4(), title: 'Add-ons' },
-    { id: uuidv4(), title: 'Summary' },
+    { id: uuidv4(), title: 'Your Info', path: '/personal-info' },
+    { id: uuidv4(), title: 'Select Plan', path: '/select-plan' },
+    { id: uuidv4(), title: 'Add-ons', path: '/pick-addons' },
+    { id: uuidv4(), title: 'Summary', path: '/finishing-up' },
 ];
 
 const Sidebar = () => {

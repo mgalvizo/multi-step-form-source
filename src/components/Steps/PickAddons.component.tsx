@@ -63,7 +63,9 @@ const PickAddons = () => {
         <StyledPickAddons className="component">
             <div className="component__content">
                 <StyledHeading as="h1">Pick add-ons</StyledHeading>
-                <p>Add-ons help enhance your gaming experience.</p>
+                <p className="step-description">
+                    Add-ons help enhance your gaming experience.
+                </p>
                 <StyledForm
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
@@ -117,6 +119,7 @@ const PickAddons = () => {
                     </fieldset>
                     <Button
                         type="button"
+                        kind="back"
                         onClick={goBack}
                         disabled={isSubmitting}
                     >
@@ -124,6 +127,7 @@ const PickAddons = () => {
                     </Button>
                     <Button
                         type="button"
+                        kind="next"
                         onClick={goNext}
                         disabled={isSubmitting}
                     >

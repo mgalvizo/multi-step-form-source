@@ -13,10 +13,12 @@ const FormInputControl = ({
     errorMessage,
 }: FormInputControlProps) => {
     return (
-        <StyledFormInputControl>
+        <StyledFormInputControl className={errorMessage ? 'error' : ''}>
             <label htmlFor={children?.props.id}>{labelText}</label>
             {children}
-            {errorMessage && <span>{errorMessage}</span>}
+            {errorMessage && (
+                <span className="error-message">{errorMessage}</span>
+            )}
         </StyledFormInputControl>
     );
 };

@@ -80,7 +80,9 @@ const FinishingUp = () => {
         <StyledFinishingUp className="component">
             <div className="component__content">
                 <StyledHeading as="h1">Finishing up</StyledHeading>
-                <p>Double-check everything looks OK before confirming.</p>
+                <p className="step-description">
+                    Double-check everything looks OK before confirming.
+                </p>
                 <div className="summary">
                     <StyledHeading as="h3">
                         {plan} ({billingPeriod})
@@ -102,11 +104,11 @@ const FinishingUp = () => {
                         {formatQuantity(result, isMonthly)}
                     </p>
                 </div>
-                <Button type="button" onClick={goBack}>
+                <Button type="button" onClick={goBack} kind="back">
                     Go Back
                 </Button>
-                <Button type="button" onClick={goNext}>
-                    Next Step
+                <Button type="button" onClick={goNext} kind="confirm">
+                    Confirm
                 </Button>
             </div>
         </StyledFinishingUp>

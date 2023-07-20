@@ -8,7 +8,7 @@ const ThankYou = () => {
             <div className="component__content">
                 <TYIcon />
                 <StyledHeading as="h1">Thank you!</StyledHeading>
-                <p>
+                <p className="step-description">
                     Thanks for confirming your subscription! We hope you have
                     fun using our platform. If you ever need support, please
                     feel free to email us at support@loremgaming.com.

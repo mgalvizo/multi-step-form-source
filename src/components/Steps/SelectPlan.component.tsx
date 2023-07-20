@@ -74,7 +74,9 @@ const SelectPlan = () => {
         <StyledSelectPlan className="component">
             <div className="component__content">
                 <StyledHeading as="h1">Select your plan</StyledHeading>
-                <p>You have the option of monthly or yearly billing.</p>
+                <p className="step-description">
+                    You have the option of monthly or yearly billing.
+                </p>
                 <StyledForm
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
@@ -134,9 +136,12 @@ const SelectPlan = () => {
                         </FormRadioControl>
                     </fieldset>
                     <fieldset>
-                        <legend>Select Billing Period</legend>
+                        <legend className="visually-hidden">
+                            Select Billing Period
+                        </legend>
                         <FormSwitchControl labelText="Billing Period">
                             <input
+                                className="visually-hidden"
                                 type="checkbox"
                                 id="billingPeriod"
                                 disabled={isSubmitting}
@@ -146,6 +151,7 @@ const SelectPlan = () => {
                     </fieldset>
                     <Button
                         type="button"
+                        kind="back"
                         onClick={goBack}
                         disabled={isSubmitting}
                     >
@@ -153,6 +159,7 @@ const SelectPlan = () => {
                     </Button>
                     <Button
                         type="button"
+                        kind="next"
                         onClick={goNext}
                         disabled={isSubmitting}
                     >

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import StyledPageNotFound from '../styled/Pages/PageNotFound.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
+import Button from '../UI/Button.component';
 
 const PageNotFound = () => {
     const navigate = useNavigate();
@@ -15,9 +16,9 @@ const PageNotFound = () => {
                 <StyledHeading as="h1">
                     We can't find the page you're looking for.
                 </StyledHeading>
-                <button type="button" onClick={goBack}>
+                <Button type="button" onClick={goBack} kind="back">
                     Go Back
-                </button>
+                </Button>
             </div>
         </StyledPageNotFound>
     );

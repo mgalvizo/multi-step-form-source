@@ -49,7 +49,7 @@ const PersonalInfo = () => {
         <StyledPersonalInfo className="component">
             <div className="component__content">
                 <StyledHeading as="h1">Personal Info</StyledHeading>
-                <p>
+                <p className="step-description">
                     Please provide your name, email address, and phone number.
                 </p>
                 <StyledForm
@@ -113,7 +113,7 @@ const PersonalInfo = () => {
                             />
                         </FormInputControl>
                     </fieldset>
-                    <Button type="submit" disabled={isSubmitting}>
+                    <Button type="submit" disabled={isSubmitting} kind="next">
                         Next Step
                     </Button>
                 </StyledForm>

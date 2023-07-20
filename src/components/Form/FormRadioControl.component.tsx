@@ -23,8 +23,8 @@ const FormRadioControl = ({
             <label htmlFor={children?.props.id}>
                 {icon}
                 <StyledHeading as="h3">{labelText}</StyledHeading>
-                <p>{billingQuantity}</p>
-                {!isMonthly && <p>2 months free</p>}
+                <p className="billing-quantity">{billingQuantity}</p>
+                {!isMonthly && <p className="extra-text">2 months free</p>}
             </label>
         </StyledFormRadioControl>
     );

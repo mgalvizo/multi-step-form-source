@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     --orange: #FFAF7E;
     --pink: #F9818E;
     --purple: #483EFF;
+    --light-purple: #928CFF;
     --red-errors: #EE374A;
     --sky-blue: #BEE2FD;
     --white: #fff;
@@ -48,17 +49,30 @@ const GlobalStyle = createGlobalStyle`
     --ellipse-color: var(--white);
     --step-text-sz: 1.2rem;
     --step-title-sz: 1.4rem;
+    --step-title-letter-spacing: 1px;
+    /* HEADINGS */
+    --h1-fsz-s: 2.4rem;
+    --h1-fsz-l: 3.2rem;
+    --h3-fsz: 1.6rem;
     /* INPUTS */
+    --label-fsz-s: 1.2rem;
+    --label-fsz-l: 1.4rem;
+    --label-lht: 1;
     --input-border-rad: 8px;
-    --input-sz: 48px;
+    --input-sz-s: 40px;
+    --input-sz-l: 48px;
+    --input-fsz-s: 1.5rem;
+    --input-fsz-m: 1.6rem;
+    --switch-wt: 38px;
+    --switch-ht: 20px;
     --toggler-sz: 20px;
     --toggler-ball-sz: 12px;
     --checkbox-sz: 20px;
     /* BUTTONS */
     --button-border-rad: 4px;
-    /* ATTRIBUTION */
-    --attribution-rad: 10px;
-    --attribution-box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+    --button-fsz-s: 1.2rem;
+    --button-fsz-l: 1.4rem;
+    /* */
     /* MEDIA */
     --media-min: 20em; /* 320px */
     --media-tablet: 30em; /* 480px */
@@ -153,6 +167,10 @@ a:link:hover {
     clip: rect(1px 1px 1px 1px);
     /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+.step-description {
+    color: var(--gray);
 }
 
 // 480px

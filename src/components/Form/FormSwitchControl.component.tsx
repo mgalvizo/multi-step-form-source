@@ -13,7 +13,11 @@ const FormSwitchControl = ({
     return (
         <StyledFormSwitchControl>
             {children}
-            <label htmlFor={children?.props.id}>{labelText}</label>
+            <label htmlFor={children?.props.id}>
+                <div className="monthly">Monthly</div>
+                <div className="switch">{labelText}</div>
+                <div className="yearly">Yearly</div>
+            </label>
         </StyledFormSwitchControl>
     );
 };
