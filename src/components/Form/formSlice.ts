@@ -43,7 +43,7 @@ const formSlice = createSlice({
         updatePickAddons: (state: FormData, action) => {
             state.pickAddons = action.payload;
         },
-        completeForm: (state: FormData, action) => {
+        completeForm: () => {
             return { ...initialState, isComplete: true };
         },
     },

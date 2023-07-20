@@ -18,7 +18,7 @@ const FinishingUp = () => {
     };
 
     const goNext = () => {
-        dispatch(completeForm(null));
+        dispatch(completeForm());
         navigate('/thank-you');
     };
 
