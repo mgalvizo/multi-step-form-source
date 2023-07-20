@@ -120,22 +120,24 @@ const PickAddons = () => {
                             />
                         </FormCheckboxControl>
                     </fieldset>
-                    <Button
-                        type="button"
-                        kind="back"
-                        onClick={goBack}
-                        disabled={isSubmitting}
-                    >
-                        Go Back
-                    </Button>
-                    <Button
-                        type="button"
-                        kind="next"
-                        onClick={goNext}
-                        disabled={isSubmitting}
-                    >
-                        Next Step
-                    </Button>
+                    <div className="button__container">
+                        <Button
+                            type="button"
+                            kind="back"
+                            onClick={goBack}
+                            disabled={isSubmitting}
+                        >
+                            Go Back
+                        </Button>
+                        <Button
+                            type="button"
+                            kind="next"
+                            onClick={goNext}
+                            disabled={isSubmitting}
+                        >
+                            Next Step
+                        </Button>
+                    </div>
                 </StyledForm>
             </div>
         </StyledPickAddons>

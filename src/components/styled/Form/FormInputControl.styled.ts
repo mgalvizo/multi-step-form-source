@@ -18,7 +18,7 @@ const StyledFormInputControl = styled.div`
         padding-left: var(--web-padding-m);
         padding-right: var(--web-padding-m);
         border: 1px solid var(--input-border-color);
-        border-radius: var(--input-border-rad);
+        border-radius: var(--input-text-border-rad);
         line-height: var(--input-sz-s);
         color: inherit;
         font-size: var(--input-fsz-s);

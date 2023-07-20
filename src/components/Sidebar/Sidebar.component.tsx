@@ -18,10 +18,8 @@ const Sidebar = () => {
     });
 
     return (
-        <StyledSidebar className="component">
-            <div className="component__content">
-                <SidebarList>{renderedSteps}</SidebarList>
-            </div>
+        <StyledSidebar>
+            <SidebarList>{renderedSteps}</SidebarList>
         </StyledSidebar>
     );
 };

@@ -113,9 +113,15 @@ const PersonalInfo = () => {
                             />
                         </FormInputControl>
                     </fieldset>
-                    <Button type="submit" disabled={isSubmitting} kind="next">
-                        Next Step
-                    </Button>
+                    <div className="button__container">
+                        <Button
+                            type="submit"
+                            kind="next"
+                            disabled={isSubmitting}
+                        >
+                            Next Step
+                        </Button>
+                    </div>
                 </StyledForm>
             </div>
         </StyledPersonalInfo>

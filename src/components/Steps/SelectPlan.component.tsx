@@ -81,7 +81,7 @@ const SelectPlan = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
                 >
-                    <fieldset>
+                    <fieldset className="plan-field">
                         <legend className="visually-hidden">Select Plan</legend>
                         <FormRadioControl
                             labelText="Arcade"
@@ -135,7 +135,7 @@ const SelectPlan = () => {
                             />
                         </FormRadioControl>
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="billing-period-field">
                         <legend className="visually-hidden">
                             Select Billing Period
                         </legend>
@@ -149,22 +149,24 @@ const SelectPlan = () => {
                             />
                         </FormSwitchControl>
                     </fieldset>
-                    <Button
-                        type="button"
-                        kind="back"
-                        onClick={goBack}
-                        disabled={isSubmitting}
-                    >
-                        Go Back
-                    </Button>
-                    <Button
-                        type="button"
-                        kind="next"
-                        onClick={goNext}
-                        disabled={isSubmitting}
-                    >
-                        Next Step
-                    </Button>
+                    <div className="button__container">
+                        <Button
+                            type="button"
+                            kind="back"
+                            onClick={goBack}
+                            disabled={isSubmitting}
+                        >
+                            Go Back
+                        </Button>
+                        <Button
+                            type="button"
+                            kind="next"
+                            onClick={goNext}
+                            disabled={isSubmitting}
+                        >
+                            Next Step
+                        </Button>
+                    </div>
                 </StyledForm>
             </div>
         </StyledSelectPlan>

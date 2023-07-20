@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const StyledFinishingUp = styled.section`
     .summary {
-        font-size: 1.4rem;
+        margin-bottom: var(--web-margin-l);
         padding: var(--web-padding-m);
         background-color: var(--very-light-gray);
+        font-size: 1.4rem;
         border-radius: var(--input-border-rad);
     }
 
@@ -68,12 +69,31 @@ const StyledFinishingUp = styled.section`
 
     // 768px
     @media only screen and (min-width: 48em) {
+        .summary {
+            padding-right: var(--web-padding-l);
+            padding-bottom: var(--web-padding-l);
+            padding-left: var(--web-padding-l);
+        }
+
         h3 {
             font-size: 1.6rem;
         }
 
         .billing-period-quantity {
             font-size: 1.6rem;
+        }
+
+        .addons {
+            margin-top: var(--web-margin-l);
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: start;
+            align-items: start;
+            gap: var(--web-margin-m);
+
+            li {
+                width: 100%;
+            }
         }
 
         .total-quantity {

@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
     --label-fsz-l: 1.4rem;
     --label-lht: 1;
     --input-border-rad: 8px;
+    --input-text-border-rad: 4px;
     --input-sz-s: 40px;
     --input-sz-l: 48px;
     --input-fsz-s: 1.5rem;
@@ -136,27 +137,17 @@ a:link:hover {
 }
 
 #root {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    align-items: start;
     overflow-x: hidden;
+    position: relative;
 }
 
-.component {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-    .component__container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: row;
-        flex-basis: var(--max-design-width);
-    }
-
-    .component__content {
-        flex-basis: var(--max-content-width);
-    }
+.app-layout__content {
+    flex-basis: var(--max-content-width);
 }
 
 .visually-hidden {
@@ -171,10 +162,6 @@ a:link:hover {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-.step-description {
-    color: var(--gray);
-}
-
 // 480px
 @media only screen and (min-width: 30em) {}
 
@@ -182,7 +169,11 @@ a:link:hover {
 @media only screen and (min-width: 38.75em) {}
 
 // 768px
-@media only screen and (min-width: 48em) {}
+@media only screen and (min-width: 48em) {
+    #root {
+        justify-content: center;
+    }
+}
 
 // 900px
 @media only screen and (min-width: 56.25em) {}

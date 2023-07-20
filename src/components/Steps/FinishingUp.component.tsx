@@ -118,12 +118,14 @@ const FinishingUp = () => {
                         +{formatQuantity(total, isMonthly)}
                     </strong>
                 </div>
-                <Button type="button" onClick={goBack} kind="back">
-                    Go Back
-                </Button>
-                <Button type="button" onClick={goNext} kind="confirm">
-                    Confirm
-                </Button>
+                <div className="button__container">
+                    <Button type="button" onClick={goBack} kind="back">
+                        Go Back
+                    </Button>
+                    <Button type="button" onClick={goNext} kind="confirm">
+                        Confirm
+                    </Button>
+                </div>
             </div>
         </StyledFinishingUp>
     );

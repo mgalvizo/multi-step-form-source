@@ -32,6 +32,7 @@ const StyledFormSwitchControl = styled.div`
         background-color: var(--denim);
         border-radius: 999px;
         text-indent: -9999px;
+        cursor: pointer;
 
         &:after {
             position: absolute;
