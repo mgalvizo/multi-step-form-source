@@ -17,7 +17,12 @@ const PageNotFound = () => {
                     <StyledHeading as="h1">
                         We can't find the page you're looking for.
                     </StyledHeading>
-                    <Button type="button" onClick={goBack} kind="back">
+                    <Button
+                        id="back"
+                        type="button"
+                        onClick={goBack}
+                        kind="back"
+                    >
                         Go Back
                     </Button>
                 </div>

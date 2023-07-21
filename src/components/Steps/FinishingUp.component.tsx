@@ -13,15 +13,6 @@ const FinishingUp = () => {
 
     const { selectPlan, pickAddons } = useSelector(getFormState);
 
-    const goBack = () => {
-        navigate('/pick-addons');
-    };
-
-    const goNext = () => {
-        dispatch(completeForm());
-        navigate('/thank-you');
-    };
-
     const plan = `${selectPlan.plan
         .charAt(0)
         .toUpperCase()}${selectPlan.plan.slice(1)}`;
@@ -119,10 +110,23 @@ const FinishingUp = () => {
                     </strong>
                 </div>
                 <div className="button__container">
-                    <Button type="button" onClick={goBack} kind="back">
+                    <Button
+                        id="back"
+                        type="button"
+                        onClick={() => navigate('/pick-addons')}
+                        kind="back"
+                    >
                         Go Back
                     </Button>
-                    <Button type="button" onClick={goNext} kind="confirm">
+                    <Button
+                        id="confirm"
+                        type="button"
+                        onClick={() => {
+                            dispatch(completeForm());
+                            navigate('/thank-you');
+                        }}
+                        kind="confirm"
+                    >
                         Confirm
                     </Button>
                 </div>

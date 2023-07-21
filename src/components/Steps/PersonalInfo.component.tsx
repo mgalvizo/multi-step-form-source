@@ -51,10 +51,6 @@ const PersonalInfo = () => {
         }
     };
 
-    const goNext = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        handleSubmit(onSubmit)(e);
-    };
-
     return (
         <StyledPersonalInfo className="component">
             <div className="component__content">
@@ -128,7 +124,7 @@ const PersonalInfo = () => {
                             type="button"
                             id="next"
                             kind="next"
-                            onClick={goNext}
+                            onClick={e => handleSubmit(onSubmit)(e)}
                             disabled={isSubmitting}
                         >
                             Next Step

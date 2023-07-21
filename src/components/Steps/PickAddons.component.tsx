@@ -1,6 +1,7 @@
+import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import StyledPickAddons from '../styled/Steps/PickAddons.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import StyledForm from '../styled/Form/Form.styled';
@@ -45,18 +46,18 @@ const PickAddons = () => {
         formState: { isSubmitting },
     } = useForm<PickAddonsType>({ defaultValues });
 
-    const goBack = () => {
-        handleSubmit(onSubmit)();
-        navigate('/select-plan');
-    };
+    const onSubmit: SubmitHandler<PickAddonsType> = (data, e) => {
+        const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
 
-    const goNext = () => {
-        handleSubmit(onSubmit)();
-        navigate('/finishing-up');
-    };
-
-    const onSubmit = (data: PickAddonsType) => {
         dispatch(updatePickAddons(data));
+
+        if ((target as HTMLButtonElement).id === 'back') {
+            navigate('/select-plan');
+        }
+
+        if ((target as HTMLButtonElement).id === 'next') {
+            navigate('/finishing-up');
+        }
     };
 
     return (
@@ -122,17 +123,19 @@ const PickAddons = () => {
                     </fieldset>
                     <div className="button__container">
                         <Button
+                            id="back"
                             type="button"
                             kind="back"
-                            onClick={goBack}
+                            onClick={e => handleSubmit(onSubmit)(e)}
                             disabled={isSubmitting}
                         >
                             Go Back
                         </Button>
                         <Button
+                            id="next"
                             type="button"
                             kind="next"
-                            onClick={goNext}
+                            onClick={e => handleSubmit(onSubmit)(e)}
                             disabled={isSubmitting}
                         >
                             Next Step

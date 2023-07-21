@@ -77,6 +77,8 @@ Using React Router and Styled Components with TypeScript.
 
 Registering, watching and validating inputs with React Hook Form.
 
+Triggering a form submission with onClick to handle Next and Back buttons with React Hook Form.
+
 Creating a formSlice to handle form data and export actions and selectors from there.
 
 Setting up a store with Redux Toolkit.
@@ -84,32 +86,6 @@ Setting up a store with Redux Toolkit.
 Dispatching actions to modify state and reading the current state with Redux Toolkit.
 
 Creating a tree of routes, handle and protect routes with React Router.
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-    color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-    console.log('🎉');
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ### Useful resources
 

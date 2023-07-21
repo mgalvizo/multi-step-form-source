@@ -1,6 +1,7 @@
+import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import StyledSelectPlan from '../styled/Steps/SelectPlan.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
@@ -54,20 +55,19 @@ const SelectPlan = () => {
 
     const watchBillingPeriod = watch('billingPeriod');
 
-    const onSubmit = (data: SelectPlanType) => {
+    const onSubmit: SubmitHandler<SelectPlanType> = (data, e) => {
+        const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
         // data would NOT match Redux state since checkbox only returns true or false
         // Redux is converting that result into the proper Redux data shape
         dispatch(updateSelectPlan(data));
-    };
 
-    const goBack = () => {
-        handleSubmit(onSubmit)();
-        navigate('/personal-info');
-    };
+        if ((target as HTMLButtonElement).id === 'back') {
+            navigate('/personal-info');
+        }
 
-    const goNext = () => {
-        handleSubmit(onSubmit)();
-        navigate('/pick-addons');
+        if ((target as HTMLButtonElement).id === 'next') {
+            navigate('/pick-addons');
+        }
     };
 
     return (
@@ -151,17 +151,19 @@ const SelectPlan = () => {
                     </fieldset>
                     <div className="button__container">
                         <Button
+                            id="back"
                             type="button"
                             kind="back"
-                            onClick={goBack}
+                            onClick={e => handleSubmit(onSubmit)(e)}
                             disabled={isSubmitting}
                         >
                             Go Back
                         </Button>
                         <Button
+                            id="next"
                             type="button"
                             kind="next"
-                            onClick={goNext}
+                            onClick={e => handleSubmit(onSubmit)(e)}
                             disabled={isSubmitting}
                         >
                             Next Step
