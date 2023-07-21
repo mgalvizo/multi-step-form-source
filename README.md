@@ -63,16 +63,27 @@ Users should be able to:
 -   CSS Grid
 -   Mobile-first workflow
 -   [React](https://reactjs.org/) - JS library
--   [Next.js](https://nextjs.org/) - React framework
--   [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Styled Components](https://styled-components.com/)
+-   [React Hook Form](https://react-hook-form.com/)
+-   [React Router](https://reactrouter.com/en/main)
+-   [Redux Toolkit](https://redux-toolkit.js.org/)
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Writing React functional components, hooks and props with TypeScript.
 
-To see how you can add code snippets, see below:
+Using React Router and Styled Components with TypeScript.
+
+Registering, watching and validating inputs with React Hook Form.
+
+Creating a formSlice to handle form data and export actions and selectors from there.
+
+Setting up a store with Redux Toolkit.
+
+Dispatching actions to modify state and reading the current state with Redux Toolkit.
+
+Creating a tree of routes, handle and protect routes with React Router.
 
 ```html
 <h1>Some HTML code I'm proud of</h1>

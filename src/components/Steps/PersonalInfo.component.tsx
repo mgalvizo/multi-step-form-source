@@ -1,6 +1,7 @@
+import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import StyledPersonalInfo from '../styled/Steps/PersonalInfo.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
@@ -40,9 +41,18 @@ const PersonalInfo = () => {
         formState: { errors, isSubmitting },
     } = useForm<PersonalInfoType>({ defaultValues });
 
-    const onSubmit = (data: PersonalInfoType): void => {
+    const onSubmit: SubmitHandler<PersonalInfoType> = (data, e) => {
+        const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
+
         dispatch(updatePersonalInfo(data));
-        navigate('/select-plan');
+
+        if ((target as HTMLButtonElement).id === 'next') {
+            navigate('/select-plan');
+        }
+    };
+
+    const goNext = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        handleSubmit(onSubmit)(e);
     };
 
     return (
@@ -115,8 +125,10 @@ const PersonalInfo = () => {
                     </fieldset>
                     <div className="button__container">
                         <Button
-                            type="submit"
+                            type="button"
+                            id="next"
                             kind="next"
+                            onClick={goNext}
                             disabled={isSubmitting}
                         >
                             Next Step
