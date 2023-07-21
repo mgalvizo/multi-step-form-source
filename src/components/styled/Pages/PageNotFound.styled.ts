@@ -7,6 +7,13 @@ const StyledPageNotFound = styled.main`
         margin-bottom: var(--web-margin-m);
     }
 
+    .app-layout__content {
+        padding: var(--web-padding-xl) var(--web-padding-l);
+        background-color: var(--white);
+        border-radius: var(--form-border-radius);
+        box-shadow: var(--form-box-shadow);
+    }
+
     // 768px
     @media only screen and (min-width: 48em) {
         display: flex;
