@@ -20,6 +20,7 @@ const StyledPageNotFound = styled.main`
 
         .app__layout {
             flex-basis: var(--max-content-width);
+            text-align: center;
         }
     }
 `;
