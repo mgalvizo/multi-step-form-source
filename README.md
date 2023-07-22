@@ -50,7 +50,7 @@ Users should be able to:
 
 ### Links
 
--   [Solution URL](https://your-solution-url.com)
+-   [Solution URL](https://www.frontendmentor.io/solutions/multi-step-form-with-react-and-typescript-ToL7qAOK3o)
 -   [Live Site URL](https://mgalvizo.github.io/multi-step-form/)
 
 ## My process
