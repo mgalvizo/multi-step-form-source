@@ -16,6 +16,7 @@ const App = () => {
             <HashRouter>
                 <Routes>
                     <Route
+                        path="/"
                         element={
                             <ProtectedRoute>
                                 <AppLayout />
