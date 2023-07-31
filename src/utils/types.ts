@@ -17,6 +17,7 @@ type BillingPeriod = {
 export type SelectPlanType = {
     plan: Plan;
     billingPeriod: BillingPeriod;
+    isStepTouched: boolean;
 };
 
 // Typing for the "Toogle Switch" checkbox since it only returns true or false
