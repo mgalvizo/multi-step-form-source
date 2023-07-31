@@ -23,7 +23,19 @@ const FinishingUp = () => {
 
     const billingPeriod = isMonthly ? 'Monthly' : 'Yearly';
 
-    const billingPeriodQuantity = isMonthly ? 9 : 90;
+    let billingPeriodQuantity = 0;
+
+    switch (selectPlan.plan) {
+        case 'arcade':
+            billingPeriodQuantity = isMonthly ? 9 : 90;
+            break;
+        case 'advanced':
+            billingPeriodQuantity = isMonthly ? 12 : 120;
+            break;
+        case 'pro':
+            billingPeriodQuantity = isMonthly ? 15 : 150;
+            break;
+    }
 
     const onlineServiceQuantity = isMonthly ? 1 : 10;
 
