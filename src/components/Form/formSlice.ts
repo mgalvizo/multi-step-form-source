@@ -6,6 +6,7 @@ const initialState: FormData = {
         name: '',
         email: '',
         phone: '',
+        isStepTouched: false,
     },
     selectPlan: {
         plan: '',
@@ -13,13 +14,15 @@ const initialState: FormData = {
             monthly: false,
             yearly: false,
         },
+        isStepTouched: false,
     },
     pickAddons: {
         onlineService: false,
         largerStorage: false,
         customizableProfile: false,
+        isStepTouched: false,
     },
-    isComplete: false,
+    isFormComplete: false,
 };
 
 const formSlice = createSlice({
@@ -28,9 +31,11 @@ const formSlice = createSlice({
     reducers: {
         updatePersonalInfo: (state: FormData, action) => {
             state.personalInfo = action.payload;
+            state.personalInfo.isStepTouched = true;
         },
         updateSelectPlan: (state: FormData, action) => {
             state.selectPlan.plan = action.payload.plan;
+            state.selectPlan.isStepTouched = true;
 
             if (action.payload.billingPeriod) {
                 state.selectPlan.billingPeriod.monthly = true;
@@ -42,9 +47,10 @@ const formSlice = createSlice({
         },
         updatePickAddons: (state: FormData, action) => {
             state.pickAddons = action.payload;
+            state.pickAddons.isStepTouched = true;
         },
         completeForm: () => {
-            return { ...initialState, isComplete: true };
+            return { ...initialState, isFormComplete: true };
         },
     },
 });

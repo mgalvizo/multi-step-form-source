@@ -1,7 +1,11 @@
-export type PersonalInfoType = {
+export type PersonalInfoTypeData = {
     name: string;
     email: string;
     phone: string;
+};
+
+export type PersonalInfoType = PersonalInfoTypeData & {
+    isStepTouched: boolean;
 };
 
 type Plan = 'arcade' | 'advanced' | 'pro' | '';
@@ -10,29 +14,33 @@ type BillingPeriod = {
     yearly: boolean;
 };
 
-export type SelectPlanTypeData = {
+export type SelectPlanType = {
     plan: Plan;
     billingPeriod: BillingPeriod;
 };
 
 // Typing for the "Toogle Switch" checkbox since it only returns true or false
-export type SelectPlanType = {
+export type SelectPlanTypeData = {
     plan: Plan;
     billingPeriod: boolean;
 };
 
-export type PickAddonsType = {
+export type PickAddonsTypeData = {
     onlineService: boolean;
     largerStorage: boolean;
     customizableProfile: boolean;
 };
 
+export type PickAddonsType = PickAddonsTypeData & {
+    isStepTouched: boolean;
+};
+
 // Form data shape
 export type FormData = {
     personalInfo: PersonalInfoType;
-    selectPlan: SelectPlanTypeData;
+    selectPlan: SelectPlanType;
     pickAddons: PickAddonsType;
-    isComplete: boolean;
+    isFormComplete: boolean;
 };
 
 // Store state shape

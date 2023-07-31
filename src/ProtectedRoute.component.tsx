@@ -10,11 +10,11 @@ interface ProtectedRouteProps {
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     const navigate = useNavigate();
 
-    const { personalInfo, selectPlan, pickAddons, isComplete } =
+    const { personalInfo, selectPlan, pickAddons, isFormComplete } =
         useSelector(getFormState);
 
     const isPersonalInfoEmpty = Object.values(personalInfo).every(
-        value => value === ''
+        value => value === '' || value === false
     );
 
     const isPlanEmpty = selectPlan.plan === '';
@@ -27,7 +27,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     );
 
     useEffect(() => {
-        if (isComplete) {
+        if (isFormComplete) {
             navigate('/thank-you');
         } else if (
             isPersonalInfoEmpty &&
@@ -38,7 +38,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
             navigate('/personal-info');
         }
     }, [
-        isComplete,
+        isFormComplete,
         isPersonalInfoEmpty,
         isPlanEmpty,
         isBillingPeriodUnselected,

@@ -9,13 +9,13 @@ import FormInputControl from '../Form/FormInputControl.component';
 import { EMAIL_REGEX, PHONE_REGEX } from '../../utils/constants';
 import Button from '../UI/Button.component';
 import { getPersonalInfo, updatePersonalInfo } from '../Form/formSlice';
-import { PersonalInfoType } from '../../utils/types';
+import { PersonalInfoTypeData } from '../../utils/types';
 
 const PersonalInfo = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let defaultValues: PersonalInfoType | undefined;
+    let defaultValues: PersonalInfoTypeData | undefined;
 
     const personalInfo = useSelector(getPersonalInfo);
 
@@ -39,9 +39,9 @@ const PersonalInfo = () => {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm<PersonalInfoType>({ defaultValues });
+    } = useForm<PersonalInfoTypeData>({ defaultValues });
 
-    const onSubmit: SubmitHandler<PersonalInfoType> = (data, e) => {
+    const onSubmit: SubmitHandler<PersonalInfoTypeData> = (data, e) => {
         const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
 
         dispatch(updatePersonalInfo(data));

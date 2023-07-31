@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import StyledSelectPlan from '../styled/Steps/SelectPlan.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
-import { SelectPlanType } from '../../utils/types';
+import { SelectPlanTypeData } from '../../utils/types';
 import { getSelectPlan, updateSelectPlan } from '../Form/formSlice';
 import StyledHeading from '../styled/UI/Heading.styled';
 import FormRadioControl from '../Form/FormRadioControl.component';
@@ -18,7 +18,7 @@ const SelectPlan = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let defaultValues: SelectPlanType | undefined;
+    let defaultValues: SelectPlanTypeData | undefined;
 
     const selectPlan = useSelector(getSelectPlan);
 
@@ -51,11 +51,11 @@ const SelectPlan = () => {
         register,
         handleSubmit,
         formState: { isSubmitting },
-    } = useForm<SelectPlanType>({ defaultValues });
+    } = useForm<SelectPlanTypeData>({ defaultValues });
 
     const watchBillingPeriod = watch('billingPeriod');
 
-    const onSubmit: SubmitHandler<SelectPlanType> = (data, e) => {
+    const onSubmit: SubmitHandler<SelectPlanTypeData> = (data, e) => {
         const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
         // data would NOT match Redux state since checkbox only returns true or false
         // Redux is converting that result into the proper Redux data shape

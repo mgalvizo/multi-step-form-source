@@ -6,7 +6,7 @@ import StyledPickAddons from '../styled/Steps/PickAddons.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
-import { PickAddonsType } from '../../utils/types';
+import { PickAddonsTypeData } from '../../utils/types';
 import {
     getSelectPlan,
     updatePickAddons,
@@ -20,15 +20,11 @@ const PickAddons = () => {
 
     const { billingPeriod } = useSelector(getSelectPlan);
 
-    let defaultValues: PickAddonsType | undefined;
+    let defaultValues: PickAddonsTypeData | undefined;
 
     const pickAddons = useSelector(getPickAddons);
 
-    const isPickAddonsUnselected = Object.values(pickAddons).every(
-        value => value === false
-    );
-
-    if (isPickAddonsUnselected) {
+    if (!pickAddons.isStepTouched) {
         defaultValues = {
             onlineService: true,
             largerStorage: true,
@@ -36,7 +32,7 @@ const PickAddons = () => {
         };
     }
 
-    if (!isPickAddonsUnselected) {
+    if (pickAddons.isStepTouched) {
         defaultValues = { ...pickAddons };
     }
 
@@ -44,9 +40,9 @@ const PickAddons = () => {
         register,
         handleSubmit,
         formState: { isSubmitting },
-    } = useForm<PickAddonsType>({ defaultValues });
+    } = useForm<PickAddonsTypeData>({ defaultValues });
 
-    const onSubmit: SubmitHandler<PickAddonsType> = (data, e) => {
+    const onSubmit: SubmitHandler<PickAddonsTypeData> = (data, e) => {
         const { target } = e as MouseEvent<HTMLButtonElement, MouseEvent>;
 
         dispatch(updatePickAddons(data));
