@@ -1,6 +1,22 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import StyledFinishingUp from '../styled/Steps/FinishingUp.styled';
+import {
+    StyledFinishingUp,
+    StyledFinishingUpContent,
+    StyledFinishingUpSummary,
+    StyledFinishingUpPlanInfo,
+    StyledFinishingUpHeading,
+    StyledFinishingUpLinkContainer,
+    StyledFinishingUpBillingPeriodQuantity,
+    StyledFinishingUpAddonsInfo,
+    StyledFinishingUpAddons,
+    StyledFinishingUpTotalInfo,
+    StyledFinishingUpTotalQuantity,
+} from '../styled/Steps/FinishingUp.styled';
+import {
+    StyledStepDescription,
+    StyledButtonContainer,
+} from '../styled/Pages/AppLayout.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import Button from '../UI/Button.component';
 import { getFormState, completeForm } from '../Form/formSlice';
@@ -84,44 +100,44 @@ const FinishingUp = () => {
     }
 
     return (
-        <StyledFinishingUp className="component">
-            <div className="component__content">
+        <StyledFinishingUp as="section">
+            <StyledFinishingUpContent>
                 <StyledHeading as="h1">Finishing up</StyledHeading>
-                <p className="step-description">
+                <StyledStepDescription>
                     Double-check everything looks OK before confirming.
-                </p>
-                <div className="summary">
-                    <div className="plan__info">
-                        <StyledHeading as="h3">
+                </StyledStepDescription>
+                <StyledFinishingUpSummary>
+                    <StyledFinishingUpPlanInfo>
+                        <StyledFinishingUpHeading as="h3">
                             {plan} ({billingPeriod})
-                        </StyledHeading>
-                        <p className="link__container">
+                        </StyledFinishingUpHeading>
+                        <StyledFinishingUpLinkContainer>
                             <Link to="/select-plan">Change</Link>
-                        </p>
-                        <strong className="billing-period-quantity">
+                        </StyledFinishingUpLinkContainer>
+                        <StyledFinishingUpBillingPeriodQuantity>
                             {formatQuantity(billingPeriodQuantity, isMonthly)}
-                        </strong>
-                    </div>
-                    <div className="addons__info">
+                        </StyledFinishingUpBillingPeriodQuantity>
+                    </StyledFinishingUpPlanInfo>
+                    <StyledFinishingUpAddonsInfo>
                         {hasAddons && (
-                            <ul className="addons">
+                            <StyledFinishingUpAddons>
                                 {pickAddons.onlineService &&
                                     onlineServiceContent}
                                 {pickAddons.largerStorage &&
                                     largerStorageContent}
                                 {pickAddons.customizableProfile &&
                                     customizableProfileContent}
-                            </ul>
+                            </StyledFinishingUpAddons>
                         )}
-                    </div>
-                </div>
-                <div className="total__info">
+                    </StyledFinishingUpAddonsInfo>
+                </StyledFinishingUpSummary>
+                <StyledFinishingUpTotalInfo>
                     <p>Total (per {isMonthly ? 'month' : 'year'})</p>
-                    <strong className="total-quantity">
+                    <StyledFinishingUpTotalQuantity>
                         +{formatQuantity(total, isMonthly)}
-                    </strong>
-                </div>
-                <div className="button__container">
+                    </StyledFinishingUpTotalQuantity>
+                </StyledFinishingUpTotalInfo>
+                <StyledButtonContainer>
                     <Button
                         id="back"
                         type="button"
@@ -141,8 +157,8 @@ const FinishingUp = () => {
                     >
                         Confirm
                     </Button>
-                </div>
-            </div>
+                </StyledButtonContainer>
+            </StyledFinishingUpContent>
         </StyledFinishingUp>
     );
 };
