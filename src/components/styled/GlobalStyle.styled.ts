@@ -146,22 +146,6 @@ a:link:hover {
     position: relative;
 }
 
-.app-layout__content {
-    flex-basis: var(--max-content-width);
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(1px 1px 1px 1px);
-    /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
 // 480px
 @media only screen and (min-width: 30em) {}
 

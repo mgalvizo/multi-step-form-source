@@ -1,7 +1,11 @@
 import { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import StyledSidebarItem from '../styled/Sidebar/SidebarItem.styled';
-import StyledHeading from '../styled/UI/Heading.styled';
+import {
+    StyledSidebarItemNumber,
+    StyledSidebarItem,
+    StyledSidebarItemStep,
+    StyledSidebarItemTitle,
+} from '../styled/Sidebar/SidebarItem.styled';
 
 type Step = {
     id: string;
@@ -23,11 +27,11 @@ const SidebarItem = ({ step, index }: SidebarItemProps) => {
         <StyledSidebarItem
             className={`${path === location.pathname ? 'active' : ''}`}
         >
-            <span className="number">{index + 1}</span>
-            <span className="step">Step {index + 1}</span>
-            <StyledHeading as="h2" className="title">
+            <StyledSidebarItemNumber>{index + 1}</StyledSidebarItemNumber>
+            <StyledSidebarItemStep>Step {index + 1}</StyledSidebarItemStep>
+            <StyledSidebarItemTitle as="h2" className="title">
                 {title}
-            </StyledHeading>
+            </StyledSidebarItemTitle>
         </StyledSidebarItem>
     );
 };

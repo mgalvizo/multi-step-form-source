@@ -15,6 +15,8 @@ const StyledAppLayout = styled.div`
 `;
 
 const StyledAppLayoutContent = styled.div`
+    flex-basis: var(--max-content-width);
+
     // 768px
     @media only screen and (min-width: 48em) {
         display: grid;
@@ -136,6 +138,18 @@ const StyledFieldset = styled.fieldset`
     gap: var(--web-margin-m);
 `;
 
+const StyledVisuallyHidden = styled.span`
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+`;
+
 export {
     StyledAppLayout,
     StyledAppLayoutContent,
@@ -146,4 +160,5 @@ export {
     StyledStepDescription,
     StyledButtonContainer,
     StyledFieldset,
+    StyledVisuallyHidden,
 };
