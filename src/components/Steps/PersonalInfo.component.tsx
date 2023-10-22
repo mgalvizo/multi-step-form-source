@@ -9,7 +9,6 @@ import {
 } from '../styled/Steps/PersonalInfo.styled';
 import {
     StyledStepDescription,
-    StyledVisuallyHidden,
     StyledFieldset,
 } from '../styled/Pages/AppLayout.styled';
 import StyledForm from '../styled/Form/Form.styled';
@@ -72,10 +71,8 @@ const PersonalInfo = () => {
                     autoComplete="off"
                 >
                     <StyledFieldset>
-                        <legend>
-                            <StyledVisuallyHidden>
-                                Personal Info
-                            </StyledVisuallyHidden>
+                        <legend className="visually-hidden">
+                            Personal Info
                         </legend>
                         <FormInputControl
                             labelText="Name"

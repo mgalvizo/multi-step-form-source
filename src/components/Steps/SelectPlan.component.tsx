@@ -2,7 +2,16 @@ import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import StyledSelectPlan from '../styled/Steps/SelectPlan.styled';
+import {
+    StyledSelectPlan,
+    StyledSelectPlanContent,
+    StyledBillingPeriodField,
+    StyledPlanField,
+} from '../styled/Steps/SelectPlan.styled';
+import {
+    StyledStepDescription,
+    StyledButtonContainer,
+} from '../styled/Pages/AppLayout.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
 import { SelectPlanTypeData } from '../../utils/types';
@@ -71,17 +80,17 @@ const SelectPlan = () => {
     };
 
     return (
-        <StyledSelectPlan className="component">
-            <div className="component__content">
+        <StyledSelectPlan as="section">
+            <StyledSelectPlanContent>
                 <StyledHeading as="h1">Select your plan</StyledHeading>
-                <p className="step-description">
+                <StyledStepDescription>
                     You have the option of monthly or yearly billing.
-                </p>
+                </StyledStepDescription>
                 <StyledForm
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
                 >
-                    <fieldset className="plan-field">
+                    <StyledPlanField>
                         <legend className="visually-hidden">Select Plan</legend>
                         <FormRadioControl
                             labelText="Arcade"
@@ -92,10 +101,10 @@ const SelectPlan = () => {
                             icon={<Arcade />}
                         >
                             <input
+                                className="visually-hidden"
                                 type="radio"
                                 value="arcade"
                                 id="arcade"
-                                className="visually-hidden"
                                 disabled={isSubmitting}
                                 {...register('plan')}
                             />
@@ -109,10 +118,10 @@ const SelectPlan = () => {
                             icon={<Advanced />}
                         >
                             <input
+                                className="visually-hidden"
                                 type="radio"
                                 value="advanced"
                                 id="advanced"
-                                className="visually-hidden"
                                 disabled={isSubmitting}
                                 {...register('plan')}
                             />
@@ -126,16 +135,16 @@ const SelectPlan = () => {
                             icon={<Pro />}
                         >
                             <input
+                                className="visually-hidden"
                                 type="radio"
                                 value="pro"
                                 id="pro"
-                                className="visually-hidden"
                                 disabled={isSubmitting}
                                 {...register('plan')}
                             />
                         </FormRadioControl>
-                    </fieldset>
-                    <fieldset className="billing-period-field">
+                    </StyledPlanField>
+                    <StyledBillingPeriodField>
                         <legend className="visually-hidden">
                             Select Billing Period
                         </legend>
@@ -148,8 +157,8 @@ const SelectPlan = () => {
                                 {...register('billingPeriod')}
                             />
                         </FormSwitchControl>
-                    </fieldset>
-                    <div className="button__container">
+                    </StyledBillingPeriodField>
+                    <StyledButtonContainer>
                         <Button
                             id="back"
                             type="button"
@@ -168,9 +177,9 @@ const SelectPlan = () => {
                         >
                             Next Step
                         </Button>
-                    </div>
+                    </StyledButtonContainer>
                 </StyledForm>
-            </div>
+            </StyledSelectPlanContent>
         </StyledSelectPlan>
     );
 };
