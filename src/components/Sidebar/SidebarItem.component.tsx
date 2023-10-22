@@ -29,9 +29,7 @@ const SidebarItem = ({ step, index }: SidebarItemProps) => {
         >
             <StyledSidebarItemNumber>{index + 1}</StyledSidebarItemNumber>
             <StyledSidebarItemStep>Step {index + 1}</StyledSidebarItemStep>
-            <StyledSidebarItemTitle as="h2" className="title">
-                {title}
-            </StyledSidebarItemTitle>
+            <StyledSidebarItemTitle as="h2">{title}</StyledSidebarItemTitle>
         </StyledSidebarItem>
     );
 };

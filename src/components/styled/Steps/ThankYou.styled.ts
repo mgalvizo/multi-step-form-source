@@ -1,25 +1,31 @@
 import styled from 'styled-components';
+import {
+    StyledComponent,
+    StyledComponentContent,
+} from '../Pages/AppLayout.styled';
+import StyledHeading from '../UI/Heading.styled';
 
-const StyledThankYou = styled.section`
+const StyledThankYou = styled(StyledComponent)`
     text-align: center;
-
-    h1 {
-        margin-top: var(--web-margin-l);
-    }
 
     // 768px
     @media only screen and (min-width: 48em) {
-        &.component {
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            margin-top: var(--web-margin-xl);
-        }
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
-export default StyledThankYou;
+const StyledThankYouContent = styled(StyledComponentContent)``;
+
+const StyledThankYouHeading = styled(StyledHeading)`
+    margin-top: var(--web-margin-l);
+
+    // 768px
+    @media only screen and (min-width: 48em) {
+        margin-top: var(--web-margin-xl);
+    }
+`;
+
+export { StyledThankYou, StyledThankYouContent, StyledThankYouHeading };

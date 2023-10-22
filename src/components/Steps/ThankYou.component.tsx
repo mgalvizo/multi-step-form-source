@@ -1,19 +1,25 @@
-import StyledThankYou from '../styled/Steps/ThankYou.styled';
-import StyledHeading from '../styled/UI/Heading.styled';
+import {
+    StyledThankYou,
+    StyledThankYouContent,
+    StyledThankYouHeading,
+} from '../styled/Steps/ThankYou.styled';
+import { StyledStepDescription } from '../styled/Pages/AppLayout.styled';
 import { ReactComponent as TYIcon } from '../../assets/icon-thank-you.svg';
 
 const ThankYou = () => {
     return (
-        <StyledThankYou className="component">
-            <div className="component__content">
+        <StyledThankYou as="section">
+            <StyledThankYouContent>
                 <TYIcon />
-                <StyledHeading as="h1">Thank you!</StyledHeading>
-                <p className="step-description">
+                <StyledThankYouHeading as="h1">
+                    Thank you!
+                </StyledThankYouHeading>
+                <StyledStepDescription>
                     Thanks for confirming your subscription! We hope you have
                     fun using our platform. If you ever need support, please
                     feel free to email us at support@loremgaming.com.
-                </p>
-            </div>
+                </StyledStepDescription>
+            </StyledThankYouContent>
         </StyledThankYou>
     );
 };
