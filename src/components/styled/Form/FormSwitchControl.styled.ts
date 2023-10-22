@@ -1,5 +1,42 @@
 import styled from 'styled-components';
 
+const StyledSwitch = styled.div`
+    position: relative;
+    width: var(--switch-wt);
+    height: var(--switch-ht);
+    background-color: var(--denim);
+    border-radius: 999px;
+    text-indent: -9999px;
+    cursor: pointer;
+
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: var(--toggler-ball-sz);
+        height: var(--toggler-ball-sz);
+        border-radius: 50%;
+        background-color: var(--white);
+        transition-property: transform;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+        content: '';
+    }
+`;
+
+const StyledFormSwitchControlYearly = styled.div`
+    transition-property: color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+`;
+
+const StyledFormSwitchControlMonthly = styled.div`
+    transition-property: color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+`;
+
 const StyledFormSwitchControl = styled.div`
     label {
         display: flex;
@@ -18,44 +55,12 @@ const StyledFormSwitchControl = styled.div`
         }
     }
 
-    .monthly,
-    .yearly {
-        transition-property: color;
-        transition-duration: 0.25s;
-        transition-timing-function: ease-in-out;
-    }
-
-    .switch {
-        position: relative;
-        width: var(--switch-wt);
-        height: var(--switch-ht);
-        background-color: var(--denim);
-        border-radius: 999px;
-        text-indent: -9999px;
-        cursor: pointer;
-
-        &:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: var(--toggler-ball-sz);
-            height: var(--toggler-ball-sz);
-            border-radius: 50%;
-            background-color: var(--white);
-            transition-property: transform;
-            transition-duration: 0.25s;
-            transition-timing-function: ease-in-out;
-            content: '';
-        }
-    }
-
     input[type='checkbox']:checked + label {
-        .monthly {
+        ${StyledFormSwitchControlMonthly} {
             color: var(--denim);
         }
 
-        .switch {
+        ${StyledSwitch} {
             &:after {
                 transform: translateX(4px) translateY(4px);
             }
@@ -63,11 +68,11 @@ const StyledFormSwitchControl = styled.div`
     }
 
     input[type='checkbox']:not(:checked) + label {
-        .yearly {
+        ${StyledFormSwitchControlYearly} {
             color: var(--denim);
         }
 
-        .switch {
+        ${StyledSwitch} {
             &:after {
                 transform: translateX(22px) translateY(4px);
             }
@@ -75,4 +80,9 @@ const StyledFormSwitchControl = styled.div`
     }
 `;
 
-export default StyledFormSwitchControl;
+export {
+    StyledSwitch,
+    StyledFormSwitchControl,
+    StyledFormSwitchControlYearly,
+    StyledFormSwitchControlMonthly,
+};

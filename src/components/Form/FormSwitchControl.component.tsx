@@ -1,5 +1,10 @@
 import { JSX } from 'react';
-import StyledFormSwitchControl from '../styled/Form/FormSwitchControl.styled';
+import {
+    StyledSwitch,
+    StyledFormSwitchControl,
+    StyledFormSwitchControlYearly,
+    StyledFormSwitchControlMonthly,
+} from '../styled/Form/FormSwitchControl.styled';
 
 interface StyledFormSwitchControlProps {
     children?: JSX.Element;
@@ -14,9 +19,13 @@ const FormSwitchControl = ({
         <StyledFormSwitchControl>
             {children}
             <label htmlFor={children?.props.id}>
-                <div className="monthly">Monthly</div>
-                <div className="switch">{labelText}</div>
-                <div className="yearly">Yearly</div>
+                <StyledFormSwitchControlMonthly>
+                    Monthly
+                </StyledFormSwitchControlMonthly>
+                <StyledSwitch>{labelText}</StyledSwitch>
+                <StyledFormSwitchControlYearly>
+                    Yearly
+                </StyledFormSwitchControlYearly>
             </label>
         </StyledFormSwitchControl>
     );

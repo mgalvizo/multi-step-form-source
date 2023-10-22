@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import StyledHeading from '../UI/Heading.styled';
 
 const StyledFormRadioControl = styled.div`
     label {
@@ -33,21 +34,6 @@ const StyledFormRadioControl = styled.div`
         grid-area: icon;
     }
 
-    h3 {
-        grid-area: title;
-    }
-
-    .billing-quantity {
-        color: var(--gray);
-        font-size: 1.4rem;
-        grid-area: billingQuantity;
-    }
-
-    .extra-text {
-        font-size: 1.2rem;
-        grid-area: extraText;
-    }
-
     // 768px
     @media only screen and (min-width: 48em) {
         label {
@@ -62,4 +48,24 @@ const StyledFormRadioControl = styled.div`
     }
 `;
 
-export default StyledFormRadioControl;
+const StyledFormRadioControlHeading = styled(StyledHeading)`
+    grid-area: title;
+`;
+
+const StyledFormRadioControlBillingQuantity = styled.p`
+    color: var(--gray);
+    font-size: 1.4rem;
+    grid-area: billingQuantity;
+`;
+
+const StyledFormRadioControlExtraText = styled.p`
+    font-size: 1.2rem;
+    grid-area: extraText;
+`;
+
+export {
+    StyledFormRadioControl,
+    StyledFormRadioControlHeading,
+    StyledFormRadioControlBillingQuantity,
+    StyledFormRadioControlExtraText,
+};

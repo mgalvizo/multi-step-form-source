@@ -42,15 +42,6 @@ const StyledFormInputControl = styled.div`
         }
     }
 
-    .error-message {
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: var(--red-errors);
-        font-weight: bold;
-        font-size: var(--label-fsz-s);
-    }
-
     // 768px
     @media only screen and (min-width: 48em) {
         label {
@@ -63,11 +54,21 @@ const StyledFormInputControl = styled.div`
             line-height: var(--input-sz-l);
             font-size: var(--input-fsz-l);
         }
-
-        .error-message {
-            font-size: var(--label-fsz-l);
-        }
     }
 `;
 
-export default StyledFormInputControl;
+const StyledErrorMessage = styled.span`
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--red-errors);
+    font-weight: bold;
+    font-size: var(--label-fsz-s);
+
+    // 768px
+    @media only screen and (min-width: 48em) {
+        font-size: var(--label-fsz-l);
+    }
+`;
+
+export { StyledFormInputControl, StyledErrorMessage };

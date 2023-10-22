@@ -1,5 +1,8 @@
 import { JSX } from 'react';
-import StyledFormInputControl from '../styled/Form/FormInputControl.styled';
+import {
+    StyledFormInputControl,
+    StyledErrorMessage,
+} from '../styled/Form/FormInputControl.styled';
 
 interface FormInputControlProps {
     children?: JSX.Element;
@@ -17,7 +20,7 @@ const FormInputControl = ({
             <label htmlFor={children?.props.id}>{labelText}</label>
             {children}
             {errorMessage && (
-                <span className="error-message">{errorMessage}</span>
+                <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
             )}
         </StyledFormInputControl>
     );

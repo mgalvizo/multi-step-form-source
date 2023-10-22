@@ -1,6 +1,10 @@
 import { JSX } from 'react';
-import StyledFormRadioControl from '../styled/Form/FormRadioControl';
-import StyledHeading from '../styled/UI/Heading.styled';
+import {
+    StyledFormRadioControl,
+    StyledFormRadioControlHeading,
+    StyledFormRadioControlBillingQuantity,
+    StyledFormRadioControlExtraText,
+} from '../styled/Form/FormRadioControl';
 
 interface FormRadioControlProps {
     children?: JSX.Element;
@@ -22,9 +26,17 @@ const FormRadioControl = ({
             {children}
             <label htmlFor={children?.props.id}>
                 {icon}
-                <StyledHeading as="h3">{labelText}</StyledHeading>
-                <p className="billing-quantity">{billingQuantity}</p>
-                {!isMonthly && <p className="extra-text">2 months free</p>}
+                <StyledFormRadioControlHeading as="h3">
+                    {labelText}
+                </StyledFormRadioControlHeading>
+                <StyledFormRadioControlBillingQuantity>
+                    {billingQuantity}
+                </StyledFormRadioControlBillingQuantity>
+                {!isMonthly && (
+                    <StyledFormRadioControlExtraText>
+                        2 months free
+                    </StyledFormRadioControlExtraText>
+                )}
             </label>
         </StyledFormRadioControl>
     );
