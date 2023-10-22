@@ -66,14 +66,6 @@ const StyledMain = styled.main`
     }
 `;
 
-const StyledSection = styled.section`
-    // 768px
-    @media only screen and (min-width: 48em) {
-        position: relative;
-        height: 100%;
-    }
-`;
-
 const StyledComponent = styled.div`
     padding-bottom: calc(69px + var(--web-padding-l));
 
@@ -154,7 +146,6 @@ export {
     StyledAppLayout,
     StyledAppLayoutContent,
     StyledMain,
-    StyledSection,
     StyledComponent,
     StyledComponentContent,
     StyledStepDescription,

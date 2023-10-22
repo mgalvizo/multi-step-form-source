@@ -2,7 +2,16 @@ import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import StyledPersonalInfo from '../styled/Steps/PersonalInfo.styled';
+import {
+    StyledPersonalInfo,
+    StyledPersonalInfoContent,
+    StyledPersonalInfoButtonContainer,
+} from '../styled/Steps/PersonalInfo.styled';
+import {
+    StyledStepDescription,
+    StyledVisuallyHidden,
+    StyledFieldset,
+} from '../styled/Pages/AppLayout.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import FormInputControl from '../Form/FormInputControl.component';
@@ -52,19 +61,21 @@ const PersonalInfo = () => {
     };
 
     return (
-        <StyledPersonalInfo className="component">
-            <div className="component__content">
+        <StyledPersonalInfo as="section">
+            <StyledPersonalInfoContent>
                 <StyledHeading as="h1">Personal Info</StyledHeading>
-                <p className="step-description">
+                <StyledStepDescription>
                     Please provide your name, email address, and phone number.
-                </p>
+                </StyledStepDescription>
                 <StyledForm
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
                 >
-                    <fieldset>
-                        <legend className="visually-hidden">
-                            Personal Info
+                    <StyledFieldset>
+                        <legend>
+                            <StyledVisuallyHidden>
+                                Personal Info
+                            </StyledVisuallyHidden>
                         </legend>
                         <FormInputControl
                             labelText="Name"
@@ -118,8 +129,8 @@ const PersonalInfo = () => {
                                 })}
                             />
                         </FormInputControl>
-                    </fieldset>
-                    <div className="button__container">
+                    </StyledFieldset>
+                    <StyledPersonalInfoButtonContainer>
                         <Button
                             type="button"
                             id="next"
@@ -129,9 +140,9 @@ const PersonalInfo = () => {
                         >
                             Next Step
                         </Button>
-                    </div>
+                    </StyledPersonalInfoButtonContainer>
                 </StyledForm>
-            </div>
+            </StyledPersonalInfoContent>
         </StyledPersonalInfo>
     );
 };

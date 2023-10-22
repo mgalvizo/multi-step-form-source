@@ -157,6 +157,11 @@ a:link:hover {
     #root {
         justify-content: center;
     }
+
+    section {
+        position: relative;
+        height: 100%;
+    }
 }
 
 // 900px
