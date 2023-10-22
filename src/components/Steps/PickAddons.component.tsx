@@ -2,7 +2,15 @@ import { MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import StyledPickAddons from '../styled/Steps/PickAddons.styled';
+import {
+    StyledPickAddons,
+    StyledPickAddonsContent,
+} from '../styled/Steps/PickAddons.styled';
+import {
+    StyledStepDescription,
+    StyledFieldset,
+    StyledButtonContainer,
+} from '../styled/Pages/AppLayout.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import StyledForm from '../styled/Form/Form.styled';
 import Button from '../UI/Button.component';
@@ -57,17 +65,17 @@ const PickAddons = () => {
     };
 
     return (
-        <StyledPickAddons className="component">
-            <div className="component__content">
+        <StyledPickAddons as="section">
+            <StyledPickAddonsContent>
                 <StyledHeading as="h1">Pick add-ons</StyledHeading>
-                <p className="step-description">
+                <StyledStepDescription>
                     Add-ons help enhance your gaming experience.
-                </p>
+                </StyledStepDescription>
                 <StyledForm
                     onSubmit={handleSubmit(onSubmit)}
                     autoComplete="off"
                 >
-                    <fieldset>
+                    <StyledFieldset>
                         <legend className="visually-hidden">
                             Pick add-ons
                         </legend>
@@ -116,8 +124,8 @@ const PickAddons = () => {
                                 {...register('customizableProfile')}
                             />
                         </FormCheckboxControl>
-                    </fieldset>
-                    <div className="button__container">
+                    </StyledFieldset>
+                    <StyledButtonContainer>
                         <Button
                             id="back"
                             type="button"
@@ -136,9 +144,9 @@ const PickAddons = () => {
                         >
                             Next Step
                         </Button>
-                    </div>
+                    </StyledButtonContainer>
                 </StyledForm>
-            </div>
+            </StyledPickAddonsContent>
         </StyledPickAddons>
     );
 };

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
+import {
+    StyledComponent,
+    StyledComponentContent,
+} from '../Pages/AppLayout.styled';
 
-const StyledPickAddons = styled.section``;
+const StyledPickAddons = styled(StyledComponent)``;
 
-export default StyledPickAddons;
+const StyledPickAddonsContent = styled(StyledComponentContent)``;
+
+export { StyledPickAddons, StyledPickAddonsContent };
