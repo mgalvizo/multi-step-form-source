@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import StyledPageNotFound from '../styled/Pages/PageNotFound.styled';
+import {
+    StyledPageNotFound,
+    StyledPageNotFoundLayout,
+    StyledPageNotFoundContent,
+} from '../styled/Pages/PageNotFound.styled';
 import StyledHeading from '../styled/UI/Heading.styled';
 import Button from '../UI/Button.component';
 
@@ -12,8 +16,8 @@ const PageNotFound = () => {
 
     return (
         <StyledPageNotFound>
-            <div className="app__layout">
-                <div className="app-layout__content">
+            <StyledPageNotFoundLayout>
+                <StyledPageNotFoundContent>
                     <StyledHeading as="h1">
                         We can't find the page you're looking for.
                     </StyledHeading>
@@ -25,8 +29,8 @@ const PageNotFound = () => {
                     >
                         Go Back
                     </Button>
-                </div>
-            </div>
+                </StyledPageNotFoundContent>
+            </StyledPageNotFoundLayout>
         </StyledPageNotFound>
     );
 };
